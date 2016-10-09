@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/switch_tabpay"
+        android:checkedButton="@+id/but_nopay"
+        android:orientation="horizontal">
+        <RadioButton android:id="@id/but_nopay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/radio_outline3_sel"
+            android:button="@null"
+            android:text="未支付"
+            />
+        <RadioButton android:id="@+id/but_yespay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/radio_outline3_sel"
+            android:button="@null"
+            android:text="已支付"
+            />
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fram_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

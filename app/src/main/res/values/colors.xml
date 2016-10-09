@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlue">#FF0000FF</color>
+    <color name="colorGray">#FF888888</color>
+    <color name="colorGreen">#FF00FF00</color>
+    <color name="colorRed">#FFFF0000</color>
+    <color name="colorGray2">#FFCCCCCC</color>
+    <color name="normal_dark_green">#ff32c888</color>
+    <color name="n_d_green">#ff007f8c</color>
+    <color name="jinhuang">#efc10b</color>
+</resources>

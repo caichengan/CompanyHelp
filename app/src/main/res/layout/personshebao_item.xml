@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+    <LinearLayout
+        android:id="@+id/rg1"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:text="@string/goumaiorchexiao"
+            android:textSize="18sp"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/gmorsx"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <TextView android:id="@+id/shebaoren_name"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/rg1"
+        android:layout_marginLeft="16dp"
+        android:singleLine="true"
+        android:drawableLeft="@mipmap/xingming_sb"
+        android:drawablePadding="4dp"
+        android:hint="@string/please_name"
+        android:gravity="center_vertical"
+        android:textSize="18sp"/>
+    <TextView android:id="@+id/shebaoren_idcard"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/shebaoren_name"
+        android:layout_marginLeft="16dp"
+        android:hint="@string/please_idcard_nums"
+        android:singleLine="true"
+        android:drawableLeft="@mipmap/sb_pid"
+        android:drawablePadding="4dp"
+        android:inputType="phone"
+        android:gravity="center_vertical"
+        android:textSize="18sp"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btn_minus_sel"
+        android:id="@+id/jian_item_btn"/>
+
+</RelativeLayout>

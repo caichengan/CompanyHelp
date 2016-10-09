@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@android:color/white">
+    <LinearLayout android:id="@+id/playPhoneContain"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginRight="15dp"
+        android:gravity="right">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:gravity="center"
+            android:text="@string/phone_num"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="18sp"
+            android:drawableRight="@mipmap/pointer_phonenum"
+            android:drawablePadding="4dp"/>
+        <Button android:id="@+id/play_phonenum"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/phone"/>
+    </LinearLayout>
+    <TableLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/playPhoneContain"
+        android:layout_marginTop="16dp"
+        >
+        <TableRow>
+            <TextView android:id="@+id/tv11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/zhuce_gongsi"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/zhu_gong_sel"
+                android:padding="8dip"
+                />
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/jichang_baoshui"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/ji_bao__sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/shebao_fuwu"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/shebao_sel"
+                android:padding="8dip"/>
+        </TableRow>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray2"/>
+        <TableRow>
+            <TextView android:id="@+id/tv21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/fapiao_fuwu"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/fa_fu_sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/zhuce_shangbiao"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/zhu_shang_sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/guzhu_baoxian"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/gu_bao_sel"
+                android:padding="8dip"/>
+        </TableRow>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray2"/>
+        <TableRow>
+            <TextView android:id="@+id/tv31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/biaogeng_fuwu"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/biao_fu_sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/zhuce_zijin"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/zhu_zi_sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/zhuxiao_fuwu"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/zhux_fuw_sel"
+                android:padding="8dip"/>
+        </TableRow>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray2"/>
+        <TableRow>
+            <TextView android:id="@+id/tv41"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/laowu_paiqian"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/lao_pai_sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/qita_zhengjian"
+                android:drawablePadding="3dp"
+                android:drawableTop="@drawable/qi_zheng_sel"
+                android:padding="8dip"/>
+            <View android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray2"/>
+            <TextView android:id="@+id/tv43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '24.0.0'
+
+    defaultConfig {
+        applicationId "com.xht.android.companyhelp"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 35
+        versionName "3.5"
+        //multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('D:/xhtkey.jks')
+            keyAlias 'keyxht'
+            keyPassword 'xhtczw'
+            storePassword 'xiaohoutaiczw'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile project(':PushSDK')
+    compile project(':GraphView')
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile files('libs/libammsdk.jar')
+    compile files('libs/alipaySdk-20160825.jar')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile 'com.jakewharton:butterknife:6.1.0'
+    compile files('libs/xUtils-2.6.14.jar')
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RadioGroup
+        android:id="@+id/linear_message"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:checkedButton="@+id/but_zhufu"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@id/but_zhufu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/radio_outline3_sel"
+            android:textSize="16sp"
+            android:text="支付助手"
+            android:button="@null"/>
+        <RadioButton
+            android:id="@+id/but_message"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/radio_outline3_sel"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:text="消息中心"
+            android:button="@null"/>
+    </RadioGroup>
+    <FrameLayout
+        android:id="@+id/frage_list"
+        android:layout_below="@id/linear_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/fram_listzhifu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           >
+
+        </ListView>
+        <ListView
+            android:visibility="gone"
+            android:id="@+id/fram_listmessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </FrameLayout>
+
+</RelativeLayout>
