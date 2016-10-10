@@ -839,8 +839,6 @@ public class VolleyHelpApi extends BaseApi{
 					String errMsg = response.optString("message");
 					apiListener.onError(errMsg);
 				} else {
-
-
 					apiListener.onResult(response);
 				}
 			}
