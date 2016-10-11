@@ -412,7 +412,7 @@ public class SLookBoardFragment extends Fragment implements AdapterView.OnItemSe
         mGraph.getGridLabelRenderer().setVerticalAxisTitleColor(Color.BLUE);*/
 
         mGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(18 * Constants.DENSITY);
-        mGraph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.BLUE);
+        mGraph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.GRAY);
 
         // legend
         series.setTitle("金额");

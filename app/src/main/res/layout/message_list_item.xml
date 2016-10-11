@@ -2,10 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:layout_marginTop="1dp"
+    android:layout_height="80dp">
 
-    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="1dp"
+        android:layout_height="80dp">
+    <ImageView
+        android:id="@+id/message_item_icom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-    <LinearLayout
+        android:src="@mipmap/new_company"/>
+    <TextView
+        android:id="@+id/message_item_title"
+        android:layout_toRightOf="@id/message_item_icom"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:text="标题"/>
+
+    <TextView
+        android:id="@+id/message_item_content"
+        android:layout_toRightOf="@id/message_item_icom"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/message_item_title"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:lines="2"
+        android:textSize="13sp"
+        android:ellipsize="end"
+        android:layout_height="wrap_content"
+        android:text="内容sdfui我尽快了富士康进而加剧了"/>
+
+    <TextView
+        android:id="@+id/message_item_time"
+        android:layout_toRightOf="@id/message_item_title"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:text="时间"/>
+    </RelativeLayout>
+
+</LinearLayout>
+
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/edit_text"
@@ -62,4 +112,4 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
        />
-</LinearLayout>
+</LinearLayout>-->

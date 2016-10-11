@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:layout_marginLeft="40dp"
             android:text="金额:"/>
         <TextView
@@ -121,6 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
+            android:textSize="17dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/btn_bookyuyue_selector"
             android:text="付款"/>

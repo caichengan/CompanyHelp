@@ -170,20 +170,11 @@ public class PayOptActivity extends Activity implements View.OnClickListener {
                     App.getInstance().showToast("感谢盆友支持小后台,请在“我的”-“完善资料”中" +
                             "完善您公司注册的具体信息，谢谢合作！");
                 }
-                Intent i=new Intent(PayOptActivity.this,PayItemActivity.class);
-                i.putExtra("time",time);
-                i.putExtra("goods",shangPin);
-                i.putExtra("number",dingdanHao);
-                i.putExtra("money",jinE+"");
-                i.putExtra("busy","小后台财税服务有限公司");
-                i.putExtra("flag",mPayFlag);
-                i.putExtra("position",position);
-                i.putExtra("weizhifu",weizhifu);
 
                 payListData();
-                startActivity(intent);
+               // startActivity(intent);
 
-                finish();
+              finish();
             }
         }
     };
@@ -504,8 +495,7 @@ public class PayOptActivity extends Activity implements View.OnClickListener {
                         }
                     }else{
                         Log.d("PAY_GET", "返回错误"+json.getString("retmsg"));
-                        Toast.makeText(PayOptActivity.this, "返回错误"+json.getString("retmsg"), Toast.LENGTH_SHORT).show();
-                    }
+                        Toast.makeText(PayOptActivity.this, "返回错误"+json.getString("retmsg"), Toast.LENGTH_SHORT).show();}
                 }else{
                     Log.d("PAY_GET", "服务器请求错误");
                     Toast.makeText(PayOptActivity.this, "服务器请求错误", Toast.LENGTH_SHORT).show();

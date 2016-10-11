@@ -83,13 +83,14 @@ public class PayItemActivity extends Activity{
         switch (item.getItemId()) {
             case android.R.id.home:
 
-                if (!TextUtils.isEmpty("weizhifu")){
+               if (!TextUtils.isEmpty("weizhifu")){
                    startActivity(new Intent(PayItemActivity.this,MainActivity.class));
                     finish();
 
                 }else{
                     finish();
                 }
+
 
                 break;
 

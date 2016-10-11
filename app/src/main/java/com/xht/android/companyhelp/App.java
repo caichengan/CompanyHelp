@@ -125,7 +125,7 @@ public class App extends Application {
 				String iconurl="";
 				final MessageDetail itemMess = new MessageDetail();
 				//把通知的数据添加到消息界面中的消息中心
-				itemMess.setmTime(Utils.getTimeUtils(System.currentTimeMillis()));
+				itemMess.setmTime(Utils.getDataUtils(System.currentTimeMillis()));
 				itemMess.setmTitle(title);
 				itemMess.setmContent(content);
 				//itemMess.setmUrl(url);
