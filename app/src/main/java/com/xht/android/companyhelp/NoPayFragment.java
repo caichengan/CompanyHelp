@@ -6,17 +6,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.view.GestureDetector;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -129,7 +124,7 @@ public class NoPayFragment extends Fragment {
                         iten.setOrderName(orderName);
                         iten.setOrderFee(orderFee);
 
-                        LogHelper.i(TAG,"----订单id---"+orderid+"hasAccount="+hasAccount+"businezzType=:"+businezzType+"-placeOrderTime="+placeOrderTime+"--orderName"+orderName+"-orderFee"+orderFee);
+                        LogHelper.i(TAG,"----订单id---"+orderid+"---id"+"hasAccount="+hasAccount+"businezzType=:"+businezzType+"-placeOrderTime="+placeOrderTime+"--orderName"+orderName+"-orderFee"+orderFee);
                         mNoPayList.add(iten);
                     }
 

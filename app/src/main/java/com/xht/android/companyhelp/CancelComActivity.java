@@ -210,7 +210,6 @@ public class CancelComActivity extends Activity {
                     mCompNames = new String[compJALength];
                     for (int i = 0; i < compJALength; i++) {
                         JSONObject temp = companyJA.optJSONObject(i);
-
                         mCompIds[i] = temp.optInt("id");
                         mCompNames[i] = temp.optString("name");
                     }

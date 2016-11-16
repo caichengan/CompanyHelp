@@ -2,6 +2,7 @@ package com.xht.android.companyhelp;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -105,15 +106,15 @@ public class YesPayFragment extends Fragment {
                     iten.setHasAccount(temp.optString("hasAccount"));
                     iten.setPlaceOrderTime(temp.optString("placeOrderTime"));
                     iten.setOrderid(temp.optString("orderid"));
+
                     iten.setOrderName(temp.optString("orderName"));
                     iten.setOrderFee(temp.optString("orderFee"));
 
+                    LogHelper.i(TAG,"------orderid"+temp.optString("orderid"));
                     mYesPayList.add(iten);
                 }
-
                 //设置数据
                 setadapterData();
-
             }
             @Override
             public void onError(Object e) {
@@ -121,52 +122,66 @@ public class YesPayFragment extends Fragment {
             }
         });
     }
-
     public class MyYesPayOrderAdapter extends BaseAdapter {
-
         @Override
         public int getCount() {
             if (mYesPayList.size()!=0){
                 return  mYesPayList.size();
             }
             return 0;
-
         }
-
         @Override
         public Object getItem(int position) {
             return mYesPayList.get(position);
         }
-
         @Override
         public long getItemId(int position) {
             return position;
         }
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
             if (convertView==null){
                 holder=new ViewHolder();
                 convertView=View.inflate(mMyOrderActivity,R.layout.yes_pay_item,null);
-
                 holder.mTime= (TextView) convertView.findViewById(R.id.item_yespay_time);
                 holder.mTitle= (TextView) convertView.findViewById(R.id.item_yespay_title);
                 holder.mMoney= (TextView) convertView.findViewById(R.id.item_yespay_money);
                 holder.mButComplete= (Button) convertView.findViewById(R.id.item_yespay_complete);
+                holder.mButProgress= (Button) convertView.findViewById(R.id.item_yespay_progress);
                 holder.mTitle1= (TextView) convertView.findViewById(R.id.item_yespay_title1);
                 holder.mImage= (ImageView) convertView.findViewById(R.id.item_yespay_img);
                 holder.mImage1= (ImageView) convertView.findViewById(R.id.item_yespay_img1);
                 convertView.setTag(holder);
             }else{
-
                 holder= (ViewHolder) convertView.getTag();
             }
             holder.mButComplete.setTextColor(Color.WHITE);
             NoPayBean item=mYesPayList.get(position);
             holder.mTime.setText(item.getPlaceOrderTime());
-
             String orderName = item.getOrderName();
+            final String orderid = item.getOrderid();
+            LogHelper.i(TAG,"-----orderid------"+orderid);
+            if (orderName.equals("注册公司")){
+                holder.mButProgress.setVisibility(View.VISIBLE);
+                holder.mButProgress.setTextColor(Color.WHITE);
+                LogHelper.i(TAG,"---------111yes"+uid);
+                holder.mButProgress.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(mMyOrderActivity,CheckProgress.class);
+                        Bundle bundle=new Bundle();
+                        intent.putExtra("progress",bundle);
+                        bundle.putInt("uid",uid);
+                        bundle.putString("orderid",orderid);
+                        LogHelper.i(TAG,"---------yes"+uid+"---"+orderid);
+                        startActivity(intent);
+                    }
+                });
+
+            }else{
+                holder.mButProgress.setVisibility(View.GONE);
+            }
             holder.mTitle.setText(orderName);
             String orderFee = item.getOrderFee();
            int money = Integer.parseInt(orderFee);
@@ -225,9 +240,6 @@ public class YesPayFragment extends Fragment {
         ImageView mImage;
         ImageView mImage1;
         Button mButComplete;
+        Button mButProgress;
     }
-
-
-
-
 }

@@ -57,6 +57,12 @@ public class BaseApi {
 	//获取未支付的订单
 	public static final String ZHUXIAO_GET_NO_PAY_URL="http://www.xiaohoutai.com.cn:8888/XHT/ordercontactController/getMyOrderHadNotPay";
 
+	//获取进度信息
+	public static final String PROGRESS_GET_PAY_URL="http://www.xiaohoutai.com.cn:8888/XHT/ordercontactController/findProgressByOrderId";
+
+	//提交评论
+	public static final String POST_APPRAISE_URL="http://www.xiaohoutai.com.cn:8888/XHT/commentController/addCommentService";
+
 	//获取支付的订单
 	public static final String ZHUXIAO_GET_YES_PAY_URL="http://www.xiaohoutai.com.cn:8888/XHT/ordercontactController/getMyOrderHadPay";
 
