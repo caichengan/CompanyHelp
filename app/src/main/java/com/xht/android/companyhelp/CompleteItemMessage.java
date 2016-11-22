@@ -138,16 +138,12 @@ public class CompleteItemMessage extends Activity{
                 finish();
             }
         });
-
     }
-
     private void refleshCompanyWorkView() {
-
         ArrayAdapter<CharSequence> mmItemWorkAdapter=new ArrayAdapter<CharSequence>(CompleteItemMessage.this,android.R.layout.simple_spinner_item,mWorks);
         mmItemWorkAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSPtext.setAdapter(mmItemWorkAdapter);
     }
-
 
     private void sureSendData() {
         if (TextUtils.isEmpty(mName)||TextUtils.isEmpty(mBiLi)||TextUtils.isEmpty(mSFZPhone)||TextUtils.isEmpty(mSFZAddress)){
