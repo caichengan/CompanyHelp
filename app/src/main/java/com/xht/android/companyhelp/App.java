@@ -1,23 +1,16 @@
 package com.xht.android.companyhelp;
 
 import android.app.Application;
-import android.app.Notification;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
-import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -27,29 +20,20 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
-import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.UmengNotificationClickHandler;
-import com.umeng.message.UmengRegistrar;
 import com.umeng.message.entity.UMessage;
-import com.umeng.message.tag.TagManager;
 import com.xht.android.companyhelp.ceche.LruCacheManager;
 import com.xht.android.companyhelp.model.Constants;
 import com.xht.android.companyhelp.model.MessageDetail;
 import com.xht.android.companyhelp.util.LogHelper;
 import com.xht.android.companyhelp.util.Utils;
 
-import org.json.JSONObject;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class App extends Application {
 	
@@ -60,7 +44,6 @@ public class App extends Application {
 	private ImageLoader mImageLoader;
 	private LruCacheManager mLruCacheManager;
 	public static ArrayList<MessageDetail> messageList;
-	public static PushAgent mPushAgent;
 
 
 	public static App getInstance() {
@@ -70,6 +53,8 @@ public class App extends Application {
 	public static ArrayList<MessageDetail> getMessageList() {
 		return messageList;
 	}
+
+	public static PushAgent mPushAgent;
 
 	public static PushAgent getmPushAgent() {
 		return mPushAgent;

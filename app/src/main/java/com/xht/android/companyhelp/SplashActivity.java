@@ -10,8 +10,6 @@ import android.os.Environment;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import com.lidroid.xutils.HttpUtils;
@@ -49,7 +47,6 @@ public class SplashActivity extends Activity {
         mAlphaAnimation.setDuration(2000);
 
 
-
         //添加动画
         set.addAnimation(mAlphaAnimation);
 
@@ -71,7 +68,6 @@ public class SplashActivity extends Activity {
             //动画结束执行此方法
             @Override
             public void onAnimationEnd(Animation animation) {
-
 
                 //检查版本更新
                 checkVersion();
@@ -111,7 +107,6 @@ public class SplashActivity extends Activity {
             }
             @Override
             public void onError(Object e) {
-
                 startActivity(new Intent(SplashActivity.this,MainActivity.class));
                 finish();
             }

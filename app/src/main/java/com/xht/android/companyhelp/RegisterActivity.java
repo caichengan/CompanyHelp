@@ -1,7 +1,5 @@
 package com.xht.android.companyhelp;
 
-import org.json.JSONObject;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -23,6 +21,8 @@ import com.xht.android.companyhelp.net.APIListener;
 import com.xht.android.companyhelp.net.VolleyHelpApi;
 import com.xht.android.companyhelp.provider.MyDatabaseManager;
 import com.xht.android.companyhelp.util.LogHelper;
+
+import org.json.JSONObject;
 
 public class RegisterActivity extends Activity implements OnClickListener {
 
@@ -192,7 +192,6 @@ public class RegisterActivity extends Activity implements OnClickListener {
 				sendBroadcast(intent);
 				finish();
 			}
-			
 			@Override
 			public void onError(Object e) {
 				dismissProgressDialog();
@@ -200,7 +199,6 @@ public class RegisterActivity extends Activity implements OnClickListener {
 			}
 		});
 	}
-
 	private void getVerCode() {
 		String pNum = mPNEditText.getText().toString();
 		if (TextUtils.isEmpty(pNum)) {

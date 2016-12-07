@@ -61,7 +61,7 @@ public class ZhuCeCompanyActivity extends Activity implements OnCheckedChangeLis
 	private int mArea = 0;    //spinner注册区域所选的id
 	private boolean mShiFouJiaJi;	//是否加急
 	private boolean mAddTuoGuan;	//地址托管
-	private int dljz = 3;	//代理记账-0,1,2,3,4,5,6
+	private int dljz = 0;	//代理记账-0,1,2,3,4,5,6
 	private int nsrFlag = 0;	//纳税人默认为小规模纳税人
 	private int zhouqiFlag = 3;	//默认为一年
 	private int[] dljz6 = new int[7];
@@ -372,6 +372,7 @@ public class ZhuCeCompanyActivity extends Activity implements OnCheckedChangeLis
 				break;
 		}
 	}
+
 
 	@Override
 	public void onStart() {
