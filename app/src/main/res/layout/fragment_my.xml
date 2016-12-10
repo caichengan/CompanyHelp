@@ -153,6 +153,24 @@
             android:drawablePadding="3dp"
             android:drawableLeft="@mipmap/wanshanxinxi"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/fragm_my_ll8"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+        <TextView android:id="@+id/complete_tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:text="税金确认"
+            android:textSize="18sp"
+            android:drawablePadding="3dp"
+            android:drawableLeft="@mipmap/wanshanxinxi"/>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"

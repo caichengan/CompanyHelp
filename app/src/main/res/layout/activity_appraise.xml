@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <EditText
+        android:id="@+id/mEditChat"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:hint="请输入评论内容，最多50个字"
+        android:background="@android:color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:background="@android:color/white">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="评分:"
+                android:textSize="17sp"
+                android:gravity="center_vertical"
+                android:layout_marginRight="20dp"
+                android:layout_height="35dp" />
+            <ImageButton
+                android:id="@+id/star_chat1"
+                android:layout_width="35dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/list_icon_star_big_empty"
+                android:layout_height="35dp" />
+            <ImageButton
+                android:id="@+id/star_chat2"
+                android:layout_width="35dp"
+
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/list_icon_star_big_empty"
+                android:layout_height="35dp" />
+            <ImageButton
+                android:layout_width="35dp"
+                android:id="@+id/star_chat3"
+
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/list_icon_star_big_empty"
+                android:layout_height="35dp" />
+            <ImageButton
+                android:id="@+id/star_chat4"
+                android:layout_width="35dp"
+
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/list_icon_star_big_empty"
+                android:layout_height="35dp" />
+            <ImageButton
+                android:id="@+id/star_chat5"
+                android:layout_width="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/list_icon_star_big_empty"
+                android:layout_height="35dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/mChatAppraise"
+            android:layout_width="100dp"
+            android:text="发表评论"
+            android:layout_margin="30dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/btn_background_circle"
+            android:layout_height="35dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -30,7 +30,9 @@ public class VolleyHelpApi extends BaseApi{
 	}
 	
 	private VolleyHelpApi() {}
-	
+
+
+
 	interface ICallBackListener {
 		void onResponse(String string);
 		void onError(int errCode, String errMessage);
@@ -170,7 +172,12 @@ public class VolleyHelpApi extends BaseApi{
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
 	}
-	
+
+	public void getCompanyTax(int mUid, final APIListener apiListener) {
+
+
+	}
+
 	public void postZhuCe(String pNum, String mimaString, String yanzheng, final APIListener apiListener) {
 		final HashMap<String, String> mParams=new HashMap<String, String>();
 				

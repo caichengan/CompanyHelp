@@ -15,11 +15,9 @@ import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -46,7 +44,7 @@ public class MyOrderActivity extends Activity implements View.OnClickListener {
     private FragmentManager fragmentManager;
 
     private GestureDetector mGesture; //手势识别
-    private int currentIndex;
+    private int currentIndex=0;
     private static final String TAG = "MyOrderActivity";
     public static final String BRO_PAY_S = "com.xht.android.companyhelp.bro_pay_s";
     private BroadcastReceiver mPayStatus = new BroadcastReceiver() {
@@ -89,8 +87,10 @@ public class MyOrderActivity extends Activity implements View.OnClickListener {
         mButYesPay.setOnClickListener(this);
         fragmentManager = getFragmentManager();
 
-        selectCurFragment(0);
+        selectCurFragment(1);
 
+        mButNoPay.setTextColor(Color.GRAY);
+        mButYesPay.setTextColor(Color.BLUE);
         IntentFilter intentFilter = new IntentFilter(BRO_PAY_S);
         registerReceiver(mPayStatus, intentFilter);
 
@@ -174,7 +174,7 @@ public class MyOrderActivity extends Activity implements View.OnClickListener {
             transaction.hide(mFragmeNoPay);
         }
         if (mFragmeYesPay != null) {
-            transaction.hide(mFragmeNoPay);
+            transaction.hide(mFragmeYesPay);
         }
 
     }

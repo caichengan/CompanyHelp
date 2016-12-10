@@ -9,18 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/switch_tabpay"
-        android:checkedButton="@+id/but_nopay"
+        android:checkedButton="@+id/but_yespay"
         android:orientation="horizontal">
-        <RadioButton android:id="@id/but_nopay"
+        <RadioButton
+            android:id="@+id/but_nopay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/radio_outline3_sel"
             android:button="@null"
+            android:background="@drawable/radio_outline3_sel"
             android:text="未支付"
             />
-        <RadioButton android:id="@+id/but_yespay"
+        <RadioButton android:id="@id/but_yespay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

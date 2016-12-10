@@ -32,7 +32,7 @@ public class MyFragment extends Fragment implements OnClickListener {
 	public static final String PHONENUM_KEY = "phone_key";
 	public static final String UID_KEY = "userId_key";
 	public static final String UNAME_KEY = "userName_key";
-	private LinearLayout mLinearLayout1, mLinearLayout2, mLinearLayout3, mLinearLayout4,mLinearLayout5,mLinearLayout6,mLinearLayout7;
+	private LinearLayout mLinearLayout1, mLinearLayout2, mLinearLayout3, mLinearLayout4,mLinearLayout5,mLinearLayout6,mLinearLayout7,mLinearLayout8;
 	private ImageView mHeadImageView;
 	private MainActivity mActivity;
 	private UserInfo mUserInfo;
@@ -97,6 +97,7 @@ public class MyFragment extends Fragment implements OnClickListener {
 		mLinearLayout5 = (LinearLayout) view.findViewById(R.id.	fragm_my_ll5);
 		//mLinearLayout6 = (LinearLayout) view.findViewById(R.id.	fragm_my_ll6);
 		mLinearLayout7 = (LinearLayout) view.findViewById(R.id.	fragm_my_ll7);
+		mLinearLayout8= (LinearLayout) view.findViewById(R.id.	fragm_my_ll8);
 		mHeadImageView = (ImageView) view.findViewById(R.id.head_img);
 		mPhoneNumView = (TextView) view.findViewById(R.id.aPhoneNum);
 		mZhangHu= (TextView) view.findViewById(R.id.changhuAdmin);
@@ -108,6 +109,7 @@ public class MyFragment extends Fragment implements OnClickListener {
 		mLinearLayout5.setOnClickListener(this);
 		//mLinearLayout6.setOnClickListener(this);
 		mLinearLayout7.setOnClickListener(this);
+		mLinearLayout8.setOnClickListener(this);
 
 		mVersionDescTV.setText("版本:"+ AppInfoUtils.getAppInfoName(getActivity()));
 		return view;		
@@ -199,6 +201,19 @@ public class MyFragment extends Fragment implements OnClickListener {
 				mActivity.switchToActivity(LoginActivity.class, null, 0, false, false);
 				return;
 			}
+				break;
+
+			case R.id.fragm_my_ll8:
+				if (isUserLogin()) {
+					Intent intent3 = new Intent(getActivity(),MyTaxSureActivity.class);
+					Bundle bundle3 = new Bundle();
+					bundle3.putInt("mUid", mUserInfo.getUid());
+					intent3.putExtra("mBundle", bundle3);
+					startActivity(intent3);
+				}else {
+					mActivity.switchToActivity(LoginActivity.class, null, 0, false, false);
+					return;
+				}
 				break;
 		}
 	}

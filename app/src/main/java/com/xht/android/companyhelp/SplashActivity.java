@@ -34,22 +34,17 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spash_activity);
-
         ImageView spashImg= (ImageView) findViewById(R.id.spash_img);
-
         //开启动画
         AnimationSet set=new AnimationSet(false);
-
         /**
          * 透明渐变色
          */
         AlphaAnimation mAlphaAnimation=new AlphaAnimation(0, 1.0f);
         mAlphaAnimation.setDuration(2000);
 
-
         //添加动画
         set.addAnimation(mAlphaAnimation);
-
         /**
          * 开启动画
          */
