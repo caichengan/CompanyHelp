@@ -19,6 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:gravity="center"
+                android:textSize="15sp"
                 android:text="@string/radioR1_s"
                 android:id="@+id/radioR1"
                 />
@@ -27,6 +28,7 @@
                 android:layout_height="45dp"
                 android:layout_marginLeft="24dp"
                 android:gravity="center"
+                android:textSize="15sp"
                 android:text="@string/radioR2_s"
                 android:id="@id/radioR2"
                 />
@@ -44,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/jichang_zhouqi_s"/>
         <RadioGroup
             android:id="@+id/rg2"
@@ -58,6 +60,7 @@
                 android:layout_height="45dp"
                 android:gravity="center"
                 android:text="@string/radio1"
+                android:textSize="15sp"
                 android:id="@+id/radio1"
                 android:layout_marginLeft="16dp"/>
             <RadioButton
@@ -65,6 +68,7 @@
                 android:layout_height="45dp"
                 android:gravity="center"
                 android:text="@string/radio2"
+                android:textSize="15sp"
                 android:id="@+id/radio2"
                 android:layout_marginLeft="16dp"/>
             <RadioButton
@@ -72,6 +76,7 @@
                 android:layout_height="45dp"
                 android:gravity="center"
                 android:text="@string/radio3"
+                android:textSize="15sp"
                 android:id="@id/radio3"
                 android:layout_marginLeft="16dp"/>
         </RadioGroup>
@@ -85,13 +90,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/company_name"/>
         <EditText android:id="@+id/cName_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:hint="@string/company_name_hint_input"
+            android:textSize="15sp"
             android:singleLine="true"
             android:maxLength="15"/>
     </LinearLayout>
@@ -102,7 +108,7 @@
         <TextView android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:text="@string/area_gongsi"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:gravity="center"
             android:layout_marginLeft="16dp"/>
         <View android:layout_width="0dp"
@@ -111,6 +117,7 @@
         <Spinner android:id="@+id/spinner1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="15sp"
             android:layout_marginRight="16dp"
             />
     </LinearLayout>
@@ -127,6 +134,7 @@
             android:drawableLeft="@mipmap/phone_sym_img"
             android:drawablePadding="4dp"
             android:inputType="phone"
+            android:textSize="15sp"
             android:maxLength="15"
             android:enabled="false"/>
     </LinearLayout>
@@ -138,6 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/please_name"
+            android:textSize="15sp"
             android:singleLine="true"
             android:drawableLeft="@mipmap/lianxiren"
             android:drawablePadding="4dp"
@@ -164,7 +173,7 @@
             android:layout_height="45dp"
             android:layout_marginLeft="16dp"
             android:text="@string/jine"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
         <TextView android:id="@+id/shu_heji"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
@@ -181,6 +190,7 @@
             android:layout_marginRight="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
+            android:textSize="15sp"
             android:text="@string/book_yuque"
             android:textColor="@android:color/white"
             android:background="@drawable/btn_bookyuyue_selector"/>

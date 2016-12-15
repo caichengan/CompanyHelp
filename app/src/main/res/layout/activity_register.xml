@@ -18,7 +18,7 @@
 		<TextView android:layout_width="80dp"
 			android:layout_height="40dp"
 			android:layout_marginLeft="16dp"
-			android:textSize="18sp"
+			android:textSize="15sp"
 			android:text="@string/shoujihao"/>
 	    <EditText android:id="@+id/zhuce_phonenum"
 	        android:layout_width="match_parent"
@@ -37,13 +37,14 @@
         <TextView android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
-			android:textSize="18sp"
+			android:textSize="15sp"
             android:text="@string/mima"/>
         <EditText android:id="@+id/mimaEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
 			android:layout_marginRight="16dp"
             android:maxLength="25"
+			android:textSize="15sp"
             android:singleLine="true"
             android:inputType="textPassword"/>
     </LinearLayout>
@@ -54,12 +55,13 @@
         <TextView android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
-			android:textSize="18sp"
+			android:textSize="15sp"
             android:text="@string/yanzheng_word"/>
 	    <EditText android:id="@+id/zhuce_yan"
 	        android:layout_width="150dp"
 	        android:layout_height="40dp"
 	        android:maxLength="25"
+			android:textSize="15sp"
 	        android:singleLine="true"
 	        android:inputType="number"/>
 	    <Button android:id="@+id/get_yanzhengma"
@@ -67,6 +69,7 @@
         	android:layout_height="40dp"
 			android:paddingLeft="8dp"
 			android:paddingRight="8dp"
+			android:textSize="15sp"
 			android:background="@drawable/btn_yanm_sel"
         	android:text="@string/get_yanzhen"
 			android:textColor="@color/colorBlue"/>
@@ -80,7 +83,7 @@
 		android:gravity="center"
 		android:text="@string/next_zhuce"
 		android:textColor="@android:color/white"
-		android:textSize="20sp"
+		android:textSize="17sp"
 		android:background="@drawable/btn_background_circle"/>
 
 </LinearLayout>

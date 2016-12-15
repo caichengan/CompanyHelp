@@ -17,8 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
-            android:text="姓 名:"/>
+            android:textSize="15sp"
+
+            android:text="姓    名:"/>
         <TextView
             android:id="@+id/item_name"
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
             android:layout_marginLeft="16dp"
             android:gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="股份比例:"/>
         <TextView
             android:id="@+id/item_bili"
@@ -48,7 +49,7 @@
             android:layout_marginLeft="16dp"
             android:gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="证件号码:"/>
         <TextView
             android:id="@+id/item_zhenjian_number"
@@ -77,7 +78,7 @@
             android:layout_marginLeft="16dp"
             android:gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_gravity="center_vertical"
             android:text="证件地址:"/>
         <TextView
@@ -100,7 +101,7 @@
             android:singleLine="true"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
 
 
@@ -114,8 +115,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
-            android:text="职  位:"/>
+            android:textSize="15sp"
+            android:text="职    位:"/>
         <TextView
             android:id="@+id/item_work_zhiwei"
             android:layout_width="match_parent"
@@ -123,7 +124,7 @@
             android:layout_marginLeft="16dp"
             android:gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
 
     <RelativeLayout

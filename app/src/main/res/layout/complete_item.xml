@@ -17,16 +17,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="姓 名:"
+            android:text="姓    名:"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
         <EditText
             android:id="@+id/item_2name"
             android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:hint="请输入姓名"
            />
 
@@ -39,7 +39,7 @@
         android:orientation="horizontal">
         <TextView
             android:layout_marginLeft="10dp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             android:id="@+id/item_2bili"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:hint="输入比例"
             android:inputType="number"
             android:layout_height="35dp"
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
             android:text="证件号码:"/>
@@ -81,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
            android:hint="请输入身份证号"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:singleLine="true"
             android:inputType="text|number"
             android:digits="0123456789abcdefghigklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
@@ -98,7 +98,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
             android:text="证件地址:"/>
@@ -106,7 +106,8 @@
             android:id="@+id/item_zhenjian_2address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="18dp"
+            android:layout_marginRight="15dp"
+            android:textSize="15sp"
             android:hint="请输入身份证地址"
             />
     </LinearLayout>
@@ -120,10 +121,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
-            android:text="职  位:"/>
+            android:text="职    位:"/>
         <Spinner
             android:id="@+id/item_sppiner_zhiwei"
             android:layout_width="150dp"
@@ -142,7 +143,9 @@
             android:id="@+id/but_item_2addren"
             android:layout_width="match_parent"
             android:text="确认"
-            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:layout_margin="15dp"
+            android:textColor="@android:color/white"
             android:background="@drawable/btn_background_circle"
             android:layout_height="wrap_content" />
 

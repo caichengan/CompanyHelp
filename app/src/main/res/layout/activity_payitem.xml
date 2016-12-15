@@ -30,13 +30,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商品详情："
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/pay_item_goods"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="注册资金"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,14 +46,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:gravity="center_horizontal"
             android:text="支付金额："/>
         <TextView
             android:id="@+id/pay_item_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="500000"/>
     </LinearLayout>
 
@@ -67,13 +67,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="订单编号："
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/pay_item_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="234"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -85,13 +85,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="支付方式："
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/pay_item_flag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="微信支付"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -103,13 +103,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商家账号："
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/pay_item_busyer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1334545668867"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
     <LinearLayout
@@ -121,12 +121,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="备注："
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="你购买的商品已经完成支付！"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
     <View

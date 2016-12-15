@@ -156,10 +156,11 @@ public class App extends Application {
 						}
 						LogHelper.i(TAG, "--111---" + key.toString() + "---11--" + value.toString());
 					}
+					messageList.add(itemMess);
 					
 				}
 				LogHelper.i(TAG, "---------------------------");
-				messageList.add(itemMess);
+				//messageList.add(itemMess);
 			}
 			//dealWithCustomMessage()方法负责处理自定义消息，需由用户处理。 若开发者需要处理自定义消息
 			@Override

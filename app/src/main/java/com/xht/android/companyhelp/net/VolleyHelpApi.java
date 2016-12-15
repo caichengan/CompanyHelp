@@ -33,6 +33,7 @@ public class VolleyHelpApi extends BaseApi{
 
 
 
+
 	interface ICallBackListener {
 		void onResponse(String string);
 		void onError(int errCode, String errMessage);
@@ -59,7 +60,6 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
 				} else {
 					JSONArray jsonObject = response.optJSONArray("entity");
 
@@ -84,7 +84,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("错误");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -100,13 +100,10 @@ public class VolleyHelpApi extends BaseApi{
 			@Override
 			public void onResponse(JSONObject response) {
 				LogHelper.i(TAG, response.toString());
-				if (isResponseError(response)) {
-					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
-				} else {
+				
 					JSONObject jsonObject = response.optJSONObject("entity");
 					apiListener.onResult(jsonObject);
-				}
+				
 			}
 		}, new Response.ErrorListener() {
 
@@ -126,7 +123,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("错误，获取验证码");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -141,13 +138,10 @@ public class VolleyHelpApi extends BaseApi{
 			@Override
 			public void onResponse(JSONObject response) {
 				LogHelper.i(TAG, response.toString());
-				if (isResponseError(response)) {
-					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
-				} else {
+				
 					JSONObject jsonObject = response.optJSONObject("entity");
 					apiListener.onResult(jsonObject);
-				}
+				
 			}
 		}, new Response.ErrorListener() {
 
@@ -167,15 +161,57 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("错误，获取验证码");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
 	}
 
-	public void getCompanyTax(int mUid, final APIListener apiListener) {
+	//获取税金数据
+	public void getCompanyTax(final int companyid, final APIListener apiListener) {
+		String urlString = MakeURL(COMTAX_URL_RESET, new LinkedHashMap<String, Object>() {{
+			put("companyid", companyid);
+		}});
+		JsonObjectRequest req = new JsonObjectRequest(urlString, null, new Response.Listener<JSONObject>() {
+
+			@Override
+			public void onResponse(JSONObject response) {
+				LogHelper.i(TAG, "----"+response.toString());
+				/*if (isResponseError(response)) {
+					String errMsg = response.optString("message");
+					apiListener.onError(errMsg);
+				} else {*/
+					String code =  response.optString("code");
+					LogHelper.i(TAG,"-----code--2-"+code);
+					LogHelper.i(TAG,"-----code--3-"+response.toString());
 
 
+					apiListener.onResult(response);
+				//}
+				
+			}
+		}, new Response.ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				int type = VolleyErrorHelper.getErrType(error);
+				switch (type) {
+					case 1:
+						LogHelper.i(TAG, "超时");
+						break;
+					case 2:
+						LogHelper.i(TAG, "服务器问题");
+						break;
+					case 3:
+						LogHelper.i(TAG, "网络问题");
+						break;
+					default:
+						LogHelper.i(TAG, "未知错误");
+				}
+				apiListener.onError("服务器繁忙，请稍后再试...");
+			}
+		});
+		App.getInstance().addToRequestQueue(req, TAG);
 	}
 
 	public void postZhuCe(String pNum, String mimaString, String yanzheng, final APIListener apiListener) {
@@ -195,7 +231,7 @@ public class VolleyHelpApi extends BaseApi{
 					jObject = new JSONObject(response);
 					if (isResponseError(jObject)) {
 						String errMsg = jObject.optString("message");
-						apiListener.onError(errMsg);
+						//apiListener.onError(errMsg);
 					} else {
 						JSONObject jsonObject = jObject.optJSONObject("entity");
 						apiListener.onResult(jsonObject);
@@ -224,7 +260,7 @@ public class VolleyHelpApi extends BaseApi{
 				default:
 					LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("错误，postZhuCe");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		}) {
 			@Override 
@@ -251,7 +287,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -274,7 +310,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -295,7 +331,7 @@ public class VolleyHelpApi extends BaseApi{
 					jObject = new JSONObject(response);
 					if (isResponseError(jObject)) {
 						String errMsg = jObject.optString("message");
-						apiListener.onError(errMsg);
+						//apiListener.onError(errMsg);
 					} else {
 						JSONObject jsonObject = jObject.optJSONObject("entity");
 						apiListener.onResult(jsonObject);
@@ -324,7 +360,7 @@ public class VolleyHelpApi extends BaseApi{
 				default:
 					LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("错误，postLogin");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		}) {
 			@Override 
@@ -350,7 +386,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -373,7 +409,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -389,7 +425,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -412,7 +448,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		}) {
 
@@ -430,7 +466,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -453,7 +489,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		}) {
 
@@ -477,7 +513,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					JSONObject jsonObject = response.optJSONObject("entity");
@@ -522,7 +558,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					JSONObject jsonObject = response.optJSONObject("entity");
 					if (jsonObject.optJSONArray("companyName") == null) {
@@ -549,7 +585,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -565,7 +601,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -588,7 +624,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -610,7 +646,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					JSONObject jsonObject = response.optJSONObject("entity");
 					if (jsonObject.optJSONArray("companyName") == null) {
@@ -638,7 +674,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -659,7 +695,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					JSONObject jsonObject = response.optJSONObject("entity");
 					apiListener.onResult(jsonObject);
@@ -682,7 +718,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -703,7 +739,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					JSONObject jsonObject = response.optJSONObject("entity");
 					apiListener.onResult(jsonObject);
@@ -726,7 +762,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -748,7 +784,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					JSONObject jsonObject = response.optJSONObject("entity");
 					LogHelper.i(TAG, "--注销公司所有信息--" + jsonObject.toString());
@@ -776,7 +812,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -799,7 +835,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG,"------"+ response.toString());
 				if (isResponseError(response)) {//{"message":"系统错误","result":"error","entity":null,"code":"0"}
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 
@@ -823,7 +859,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -889,7 +925,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					apiListener.onResult(response);
 				}
@@ -911,7 +947,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -933,7 +969,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					LogHelper.i(TAG,"-----变更服务价格的所有信息"+response.toString());
 					JSONObject jsonObject = response.optJSONObject("entity");
@@ -961,7 +997,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取价格出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -981,7 +1017,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 
 				} else {
 					JSONArray jsonObject = response.optJSONArray("entity");
@@ -1005,7 +1041,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取公司类型出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1025,7 +1061,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 
 				} else {
 					JSONArray jsonObject = response.optJSONArray("entity");
@@ -1049,7 +1085,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取公司类型出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1072,7 +1108,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					JSONObject jsonObject = response.optJSONObject("entity");
 
@@ -1096,7 +1132,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取信息出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1113,7 +1149,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1136,7 +1172,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1153,7 +1189,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1176,7 +1212,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1190,7 +1226,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1213,7 +1249,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("提交订单出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1251,7 +1287,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("获取出错");
+				apiListener.onError("服务器繁忙，请稍后再试...");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1267,7 +1303,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1290,7 +1326,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("完善信息出错");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1307,7 +1343,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1330,7 +1366,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1347,7 +1383,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1370,7 +1406,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1387,7 +1423,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1410,7 +1446,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1427,7 +1463,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1450,7 +1486,44 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
+			}
+		});
+		App.getInstance().addToRequestQueue(req, TAG);
+
+	}
+
+
+	//提交税金确认数据
+	public void postDataTax(JSONObject objectJO, final APIListener apiListener) {
+
+
+		JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, POST_SURETAX_URL, objectJO, new Response.Listener<JSONObject>() {
+			@Override
+			public void onResponse(JSONObject response) {
+				LogHelper.i(TAG, response.toString());
+
+					apiListener.onResult(response);
+
+			}
+		}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				int type = VolleyErrorHelper.getErrType(error);
+				switch (type) {
+					case 1:
+						LogHelper.i(TAG, "超时");
+						break;
+					case 2:
+						LogHelper.i(TAG, "服务器问题");
+						break;
+					case 3:
+						LogHelper.i(TAG, "网络问题");
+						break;
+					default:
+						LogHelper.i(TAG, "未知错误");
+				}
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1467,7 +1540,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1490,7 +1563,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1506,7 +1579,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1529,7 +1602,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1545,7 +1618,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1568,7 +1641,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1584,7 +1657,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 
 					apiListener.onResult(response);
@@ -1607,7 +1680,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1630,7 +1703,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					apiListener.onResult(response);
 				}
@@ -1652,7 +1725,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1675,7 +1748,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					apiListener.onResult(response);
 				}
@@ -1697,7 +1770,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1719,7 +1792,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				}
 				else {
 					JSONObject jsonObject = response.optJSONObject("entity");
@@ -1748,7 +1821,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1770,7 +1843,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					apiListener.onResult(response);
 				}
@@ -1792,7 +1865,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);
@@ -1815,7 +1888,7 @@ public class VolleyHelpApi extends BaseApi{
 				LogHelper.i(TAG, response.toString());
 				if (isResponseError(response)) {
 					String errMsg = response.optString("message");
-					apiListener.onError(errMsg);
+					//apiListener.onError(errMsg);
 				} else {
 					apiListener.onResult(response);
 				}
@@ -1837,7 +1910,7 @@ public class VolleyHelpApi extends BaseApi{
 					default:
 						LogHelper.i(TAG, "未知错误");
 				}
-				apiListener.onError("服务器繁忙,请稍后再试。。。");
+				apiListener.onError("服务器正在忙着造人,请稍后再试。。。");
 			}
 		});
 		App.getInstance().addToRequestQueue(req, TAG);

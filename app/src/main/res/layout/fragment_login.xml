@@ -16,13 +16,14 @@
         <TextView android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/shoujihao"/>
         <EditText android:id="@+id/phoneEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginRight="16dp"
             android:maxLength="25"
+            android:textSize="15sp"
             android:singleLine="true"
             android:inputType="phone"/>
     </LinearLayout>
@@ -33,13 +34,14 @@
         <TextView android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/mima"/>
         <EditText android:id="@+id/mimaEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginRight="16dp"
             android:maxLength="25"
+            android:textSize="15sp"
             android:singleLine="true"
             android:inputType="textPassword"/>
     </LinearLayout>
@@ -72,7 +74,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textColor="@android:color/white"
         android:text="@string/denglu"
         android:background="@drawable/btn_background_circle"/>

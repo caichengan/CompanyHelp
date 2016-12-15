@@ -11,13 +11,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/huowu_str"/>
         <EditText android:id="@+id/i_hwName_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:singleLine="true"
+            android:textSize="15sp"
             android:maxLength="15"/>
     </LinearLayout>
     <LinearLayout
@@ -28,13 +29,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/guigexinghao"/>
         <EditText android:id="@+id/guigexinghao_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:singleLine="true"
+            android:textSize="15sp"
             android:maxLength="15"/>
     </LinearLayout>
     <LinearLayout
@@ -45,12 +47,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/danwei_str"/>
         <EditText android:id="@+id/danwei_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
+            android:textSize="15sp"
             android:singleLine="true"
             android:maxLength="15"/>
 
@@ -64,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/shuliang_str"/>
         <EditText android:id="@+id/shuliang_et"
             android:layout_width="match_parent"
@@ -72,6 +75,7 @@
             android:layout_marginLeft="16dp"
             android:singleLine="true"
             android:maxLength="8"
+            android:textSize="15sp"
             android:inputType="number"/>
     </LinearLayout>
 
@@ -83,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/danjia_str"/>
         <EditText android:id="@+id/danjia_et"
             android:layout_width="match_parent"
@@ -91,6 +95,8 @@
             android:layout_marginLeft="16dp"
             android:singleLine="true"
             android:maxLength="12"
+            android:textSize="15sp"
+
             android:inputType="numberDecimal"/>
     </LinearLayout>
     <LinearLayout
@@ -101,13 +107,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/je_buhanshui_str"/>
         <EditText android:id="@+id/je_buhanshui_et"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:singleLine="true"
+            android:textSize="15sp"
             android:enabled="false"/>
     </LinearLayout>
 
@@ -120,5 +127,5 @@
         android:background="@drawable/btn_background_circle"
         android:text="@string/baocun_str"
         android:gravity="center"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 </LinearLayout>

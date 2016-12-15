@@ -16,7 +16,7 @@
                 android:id="@+id/shangpin"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:layout_centerInParent="true"
                 android:text="公司注册"
 
@@ -75,7 +75,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="微信支付"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             android:id="@+id/view" />
 
@@ -115,7 +115,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="支  付  宝"
-            android:textSize="17sp"
+            android:textSize="16sp"
             android:layout_marginLeft="6dp"
             android:gravity="center_vertical"
             />
@@ -144,7 +144,7 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="@string/lijizhifu"
         android:textColor="#ffffff"
         android:background="@drawable/btn_background_circle"/>

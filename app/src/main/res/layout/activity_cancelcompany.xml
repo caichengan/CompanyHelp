@@ -16,13 +16,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:src="@mipmap/new_company"
-            android:textSize="18sp" />
+            />
         <EditText
             android:id="@+id/company_name_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_weight="1"
             android:hint="选择要注销的公司名称"/>
 
@@ -79,7 +79,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/banli_zhuxiao_1"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/banli_zhuxiao_2"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <View
@@ -115,7 +115,7 @@
                     android:layout_marginTop="10dp"
 
                     android:text="@string/cailiao_zhuxiao_1"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -124,7 +124,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/cailiao_zhuxiao_2"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <View
@@ -151,7 +151,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/zhuyi_zhuxiao_1"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/zhuyi_zhuxiao_2"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -179,7 +179,7 @@
             android:layout_height="45dp"
             android:layout_marginLeft="16dp"
             android:text="@string/jine"
-            android:textSize="18sp"/>
+            android:textSize="16sp"/>
         <TextView
             android:id="@+id/company_money_total"
             android:layout_width="wrap_content"
@@ -199,6 +199,7 @@
             android:paddingRight="16dp"
             android:text="@string/book_yuque"
             android:textColor="@android:color/white"
+            android:textSize="15sp"
             android:background="@drawable/btn_bookyuyue_selector"/>
     </LinearLayout>
 

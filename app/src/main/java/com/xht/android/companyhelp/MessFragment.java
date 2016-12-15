@@ -10,6 +10,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -63,12 +65,25 @@ public class MessFragment extends Fragment implements RadioGroup.OnCheckedChange
 		Bitmap mBitmap= BitmapFactory.decodeFile("http://photo.enterdesk.com/2008-11-23/200811221700467000.jpg");
 		mUserInfo = ((MainActivity) mActivity).mUserInfo;
 
+		setHasOptionsMenu(true);
+
 	}
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		mActivity= (MainActivity) activity;
 	}
+
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+
+		inflater.inflate(R.menu.menu_message,menu);
+
+	}
+
+
 
 	@Override
 	public void onResume() {

@@ -15,10 +15,12 @@
         <RadioButton
             android:id="@+id/item_biangeng_gudong"
             android:layout_width="wrap_content"
+            android:textSize="15sp"
             android:layout_height="wrap_content"
             android:text="变更股东"/>
         <RadioButton
             android:id="@+id/item_biangeng_guquan"
+            android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="变更股权"/>
@@ -35,14 +37,14 @@
             android:id="@+id/item_biangeng_zeng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="增"/>
         <RadioButton
             android:id="@+id/item_biangeng_jian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="减"/>
     </RadioGroup>
 
@@ -56,12 +58,13 @@
             android:layout_width="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:padding="3dp"
             android:text="姓名:"/>
         <EditText
             android:id="@+id/item_biangeng_name"
             android:layout_width="match_parent"
+            android:textSize="15sp"
             android:layout_height="wrap_content"
             android:hint="请输入姓名"/>
     </LinearLayout>
@@ -75,7 +78,7 @@
             android:id="@+id/shengfengzhenghao_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:layout_marginLeft="10dp"
             android:padding="3dp"
             android:layout_marginTop="6dp"
@@ -87,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text|number"
+            android:textSize="15sp"
             android:digits="0123456789abcdefghigklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
             android:hint="请输入身份证号"/>
 
@@ -102,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:padding="3dp"
             android:text="身份证地址:"/>
         <EditText
@@ -110,6 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
+            android:textSize="15sp"
             android:hint="请输入身份证地址"/>
     </LinearLayout>
 
@@ -122,13 +127,14 @@
             android:layout_width="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="15sp"
             android:padding="3dp"
             android:text="股权比例:"/>
         <EditText
             android:id="@+id/item_biangeng_guquan_bili"
             android:layout_width="150dp"
             android:phoneNumber="true"
+            android:textSize="15sp"
             android:layout_height="wrap_content"
             android:hint="请输入股权比例"/>
         <TextView
@@ -147,6 +153,8 @@
         android:id="@+id/item_imageview_contacts"
         android:layout_width="match_parent"
         android:text="确认保存"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
         android:layout_marginTop="15dp"
         android:background="@drawable/btn_background_circle"
         android:layout_height="wrap_content" />

@@ -30,7 +30,7 @@
             android:hint="@string/company_money_change_hint_input"
             android:singleLine="true"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <Spinner
             android:id="@+id/select_spinner"
@@ -60,7 +60,7 @@
             android:layout_marginLeft="50dp"
             android:layout_weight="1"
             android:text="增"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/change_radio_jian"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="减"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
     </RadioGroup>
 
 
@@ -82,6 +82,7 @@
         <EditText
             android:id="@+id/change_input_total_money"
             android:layout_width="match_parent"
+            android:textSize="15sp"
             android:layout_height="60dp"
             android:drawableLeft="@mipmap/company_money"
             android:hint="@string/new_money_change"
@@ -97,7 +98,9 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:textSize="19sp" />
+        android:textSize="17sp"
+        android:id="@+id/textView4" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
@@ -124,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/banli"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -134,7 +137,7 @@
                     android:layout_marginTop="10dp"
 
                     android:text="@string/banli_zhuce_1"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -143,7 +146,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/banli_zhuce_2"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <View
@@ -161,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/cailiao"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -170,7 +173,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/cailiao_zhuce_1"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -179,7 +182,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/cailiao_zhuce_2"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <View
@@ -197,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="@string/zhuyishi"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -206,7 +209,8 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/zhuyi_zhuce_1"
-                    android:textSize="16sp" />
+                    android:textSize="15sp"
+                    android:id="@+id/textView5" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -215,7 +219,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/zhuyi_zhuce_2"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -237,7 +241,7 @@
             android:layout_height="45dp"
             android:layout_marginLeft="16dp"
             android:text="@string/jine"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/change_dingdan_money"
@@ -246,7 +250,7 @@
             android:layout_marginLeft="4dp"
 
             android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <View
             android:layout_width="0dp"
@@ -261,6 +265,7 @@
             android:background="@drawable/btn_bookyuyue_selector"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
+            android:textSize="15sp"
             android:text="@string/book_yuque"
             android:textColor="@android:color/white" />
     </LinearLayout>

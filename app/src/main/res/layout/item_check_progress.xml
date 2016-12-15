@@ -20,7 +20,7 @@
             android:layout_toRightOf="@id/mPriaseHeadImg"
             android:layout_width="wrap_content"
             android:text="姓名"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_height="match_parent" />
@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:text="136435987968996"
             android:gravity="center_vertical"
+            android:textSize="15sp"
             android:layout_marginLeft="10dp"
             android:layout_height="match_parent" />
 
@@ -61,7 +62,7 @@
             android:id="@+id/mStyleName"
             android:layout_width="wrap_content"
             android:text="企业核名"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -86,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:text="开始时间："
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/mStartTime"
@@ -106,7 +107,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:text="结束时间："
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/mEndTime"
@@ -127,7 +128,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:text="结果图片："
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -234,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:text="评分："
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
 
@@ -278,14 +279,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:text="评语："
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent" />
                 <TextView
                     android:text=""
                     android:id="@+id/mTextAppriase"
                     android:padding="5dp"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -306,6 +307,7 @@
                 android:id="@+id/mProgressAppraise"
                 android:layout_width="100dp"
                 android:text="评  价"
+                android:textSize="15sp"
                 android:layout_alignParentRight="true"
                 android:layout_margin="10dp"
                 android:textColor="@android:color/white"

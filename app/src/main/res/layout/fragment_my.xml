@@ -23,6 +23,7 @@
             android:layout_marginLeft="8dp">
             <TextView android:id="@+id/aName"
                 android:layout_width="wrap_content"
+                android:layout_marginLeft="35dp"
                 android:layout_height="25dp"
                 />
             <TextView android:id="@+id/aPhoneNum"
@@ -54,7 +55,7 @@
                 android:layout_marginTop="6dp"
                 android:gravity="center_vertical"
                 android:text="@string/myCompStr"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:drawablePadding="3dp"
                 android:drawableLeft="@mipmap/comp_n_beixuan"/>
         <TextView android:id="@+id/myCompMess"
@@ -76,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/mybooklistStr"
                 android:drawablePadding="3dp"
                 android:drawableLeft="@mipmap/img_mybooklist"/>
@@ -94,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/lookserviceboardStr"
                 android:drawablePadding="3dp"
                 android:drawableLeft="@mipmap/img_lookserviceboard"/>
@@ -104,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:orientation="vertical"
         android:background="@android:color/white">
         <TextView android:id="@+id/changhuAdmin"
@@ -112,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/changhu_admin"
                 android:drawablePadding="3dp"
                 android:drawableLeft="@mipmap/img_changhu_admin"/>
@@ -149,7 +150,7 @@
             android:layout_marginLeft="12dp"
             android:gravity="center_vertical"
             android:text="完善信息"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:drawablePadding="3dp"
             android:drawableLeft="@mipmap/wanshanxinxi"/>
     </LinearLayout>
@@ -161,15 +162,16 @@
         android:layout_marginTop="4dp"
         android:orientation="vertical"
         android:background="@android:color/white">
+
         <TextView android:id="@+id/complete_tax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="17dp"
             android:gravity="center_vertical"
-            android:text="税金确认"
-            android:textSize="18sp"
+            android:text=" 税金确认"
+            android:textSize="15sp"
             android:drawablePadding="3dp"
-            android:drawableLeft="@mipmap/wanshanxinxi"/>
+            android:drawableLeft="@drawable/zhu_zi_sel"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

@@ -15,7 +15,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text=""
             android:drawableLeft="@mipmap/comp_n_beixuan"
             android:drawablePadding="4dp"/>
@@ -41,11 +41,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/zhonglei"/>
         <Spinner android:id="@+id/spinner2"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="15sp"
             android:layout_marginLeft="16dp"
             android:layout_gravity="center_vertical"/>
         <TextView
@@ -53,11 +54,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:text="@string/nianfen"/>
         <Spinner android:id="@+id/spinner3"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="15sp"
             android:layout_marginLeft="16dp"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>
@@ -80,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:text="@string/year_feiyong"
             android:drawableLeft="@mipmap/coin"
             android:drawablePadding="4dp"/>
@@ -89,7 +91,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="4dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/jinhuang"/>
     </LinearLayout>
     <LinearLayout
@@ -102,21 +104,24 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@android:color/darker_gray"
-            android:text="@string/year_feiyong_two"/>
+            android:text="@string/year_feiyong_two"
+            android:id="@+id/textView7" />
+
         <TextView android:id="@+id/year_feiyong_tv_t"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="16dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@android:color/darker_gray"/>
     </LinearLayout>
     <LinearLayout
@@ -136,28 +141,28 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/shebao_fee_str"/>
             <TextView android:id="@+id/shebaoFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="4dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/jinhuang"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/shebao_p_num_str"/>
             <TextView android:id="@+id/shebaoPNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="4dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/jinhuang"/>
             <View
                 android:layout_width="0dp"
@@ -185,14 +190,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/baoshui_fee_str"/>
             <TextView android:id="@+id/baoshuiFee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="4dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/jinhuang"/>
             <View
                 android:layout_width="0dp"
@@ -222,7 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/fapiao_fee_str"/>
 
             <View
@@ -254,7 +259,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/kaipiao_fee_str"/>
             <TextView android:id="@+id/fapiaoFee"
                 android:layout_width="wrap_content"
@@ -262,14 +267,14 @@
                 android:layout_marginLeft="4dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/jinhuang"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:text="@string/jx_fee_str"/>
             <TextView android:id="@+id/jxseFee"
                 android:layout_width="wrap_content"
@@ -277,7 +282,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/jinhuang"/>
         </LinearLayout>
     </LinearLayout>

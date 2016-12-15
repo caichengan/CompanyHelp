@@ -24,7 +24,7 @@
             android:id="@+id/complete_company_name"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_weight="1"
             android:editable="false"
             android:enabled="true"
@@ -52,7 +52,7 @@
             android:id="@+id/complete_zhuce_money"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:phoneNumber="true"
             android:layout_marginRight="20dp"
             android:hint="请输入注册资金(单位万)"/>
@@ -74,7 +74,7 @@
             android:id="@+id/complete_company_leixing"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center"
             />
@@ -95,7 +95,7 @@
             android:id="@+id/complete_jingying_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:singleLine="true"
             android:layout_marginRight="20dp"
             android:hint="请输入经营地址"/>
@@ -115,7 +115,7 @@
             android:id="@+id/complete_company_fanwei"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:layout_marginRight="20dp"
             android:singleLine="true"
             android:hint="请输入经营范围"/>

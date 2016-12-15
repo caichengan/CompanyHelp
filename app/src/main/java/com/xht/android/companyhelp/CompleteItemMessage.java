@@ -73,11 +73,16 @@ public class CompleteItemMessage extends Activity{
         String address= intent.getStringExtra("mSFZAddress");
         String job= intent.getStringExtra("mZhiWei");
 
-        mEdBiLi.setText(bili);
+        LogHelper.i(TAG,"---------"+bili);
+        if (bili.equals("null")){
+            mEdBiLi.setText("");
+        }else{
+            mEdBiLi.setText(bili);
+        }
+
         mEdName.setText(name);
         mEdSFZPhone.setText(phone);
         mEdSFZAddress.setText(address);
-
 
         getCompanyWork(mUid);
         //确认填写正确
@@ -91,31 +96,24 @@ public class CompleteItemMessage extends Activity{
             }
         });
 
-
-
         mSPtext.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mWorkId=position;
                 LogHelper.i(TAG,"----id------"+mWorkId);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
-
     //获取公司职位
     public void getCompanyWork(int uid) {
         VolleyHelpApi.getInstance().getCompanyWork(uid, new APIListener() {
             @Override
             public void onResult(Object result) {
-
                 JSONArray companyJT= (JSONArray) result;
                 LogHelper.i(TAG, "---所有信息--" + companyJT.toString());
-
                 try {
                     int compJTLength = companyJT.length();
                     mWorkIds = new int[compJTLength];

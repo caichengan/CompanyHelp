@@ -185,6 +185,15 @@ public class SLookBoardFragment extends Fragment implements AdapterView.OnItemSe
             @Override
             public void onResult(Object result) {
                 JSONObject jsonObject = (JSONObject) result;
+                LogHelper.i(TAG,"------onResult---"+jsonObject.toString());
+
+               /* "companyList":{"list":[{"companyName":"安测试公司一","companyId":12},{"companyName":"测试公司二","companyId":14},{"companyName":"测试公司三","companyId":16}]},
+                "yearShui":{"list":[{"sum":0}]},
+                "kaiPiaoShui":{"list4":[0],"list2":[0],"list3":[0],"list1":[0]},
+                "yuFenShebao":{"list4":[[0,0]],"list5":[[0,0]],"list2":[[0,0]],"list3":[[0,0]],"list1":[[0,0]],"list8":[[0,0]],"list10":[[0,0]],"list9":[[0,0]],"list11":[[0,0]],"list6":[[0,0]],"list12":[[0,0]],"list7":[[0,0]]},
+                "orderByCompanyIdAndName":{"list":[{"companyName":"安测试公司一","companyId":12}]},"code":"1",
+                "baoshui":{"list4":[0],"list2":[0],"list3":[0],"list1":[0]},"jinXiangshui":{}}
+              */
                 try {
                     JSONObject compList = jsonObject.getJSONObject("companyList");
                     JSONArray compListJA = compList.optJSONArray("list");

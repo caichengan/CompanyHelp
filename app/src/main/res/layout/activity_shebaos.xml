@@ -54,13 +54,13 @@
             android:layout_height="45dp"
             android:layout_marginLeft="16dp"
             android:text="@string/jine"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
         <TextView android:id="@+id/shu_heji"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_marginLeft="4dp"
 
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@android:color/holo_red_light"/>
         <View android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -72,6 +72,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:text="@string/book_yuque"
+            android:textSize="15sp"
             android:textColor="@android:color/white"
             android:background="@drawable/btn_bookyuyue_selector"/>
     </LinearLayout>

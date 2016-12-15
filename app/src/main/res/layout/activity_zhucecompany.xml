@@ -18,7 +18,7 @@
 	    	<TextView android:layout_width="wrap_content"
 	    	    android:layout_height="60dp"
 	    	    android:text="@string/area_zhuce"
-	    	    android:textSize="18sp"
+	    	    android:textSize="15sp"
 	    	    android:gravity="center"
 	    	    android:layout_marginLeft="16dp"/>
 	    	<View android:layout_width="0dp"
@@ -39,7 +39,7 @@
 	    	    android:layout_width="wrap_content"
 	    	    android:layout_height="wrap_content"
 	    	    android:layout_marginLeft="16dp"
-	    	    android:textSize="18sp"
+	    	    android:textSize="15sp"
 	    	    android:text="@string/company_name"/>
 	    	<EditText android:id="@+id/cName_et"
 	    	    android:layout_width="match_parent"
@@ -47,7 +47,8 @@
 	    	    android:layout_marginLeft="16dp"
 	    	    android:hint="@string/company_name_hint_input"
 	    	    android:singleLine="true"
-	    	    android:maxLength="15"/>
+				android:textSize="15sp"
+	    	    android:maxLength="30"/>
 	    	</LinearLayout>
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -58,7 +59,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginLeft="16dp"
-					android:textSize="18sp"
+					android:textSize="15sp"
 					android:text="@string/shifou_jiaji"/>
 				<View
 					android:layout_width="0dp"
@@ -80,14 +81,14 @@
 	    	    android:layout_width="wrap_content"
 	    	    android:layout_height="wrap_content"
 	    	    android:layout_marginLeft="16dp"
-	    	    android:textSize="18sp"
+	    	    android:textSize="15sp"
 	    	    android:text="@string/address_tuoguan_s"/>
 	    	<TextView android:id="@+id/shu_add"
 		        android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"
 	    		android:layout_marginLeft="4dp"
 	    		
-	    		android:textSize="18sp"
+	    		android:textSize="16sp"
 	    		android:textColor="@android:color/holo_red_light"/>
 	    	<View 
 	    	    android:layout_width="0dp"
@@ -108,7 +109,7 @@
 	    	    android:layout_width="wrap_content"
 	    	    android:layout_height="wrap_content"
 	    	    android:layout_marginLeft="16dp"
-	    	    android:textSize="18sp"
+	    	    android:textSize="15sp"
 	    	    android:text="@string/daili_jichang_s"/>
 	    	<View 
 	    	    android:layout_width="0dp"
@@ -131,7 +132,7 @@
 		    	    android:layout_width="wrap_content"
 		    	    android:layout_height="wrap_content"
 		    	    android:layout_marginLeft="16dp"
-		    	    android:textSize="18sp"
+		    	    android:textSize="16sp"
 		    	    android:text="@string/jichang_zhouqi_s"/>
 	    		<RadioGroup
 					android:id="@+id/period_jz"
@@ -208,6 +209,7 @@
 		    		android:drawablePadding="4dp"
 		    		android:inputType="phone"
 					android:maxLength="15"
+					android:textSize="15sp"
 					android:enabled="false"/>
 	    	</LinearLayout>
 	    	<LinearLayout 
@@ -221,18 +223,20 @@
 		    		android:drawableLeft="@mipmap/lianxiren"
 		    		android:drawablePadding="4dp"
 		    		android:hint="@string/please_name"
+					android:textSize="15sp"
 					android:maxLength="15"/>
 	    	</LinearLayout>
 	    	<LinearLayout 
 			    android:layout_width="match_parent"
 		    	android:layout_height="60dp"
+				android:visibility="gone"
 		    	android:background="@android:color/white"
 		    	android:gravity="center">
 	    		<Spinner android:id="@+id/spinner2"
 		    	    android:layout_width="wrap_content"
 		    	    android:layout_height="45dp"
 		    	    android:gravity="center"
-					android:visibility="gone"
+					
 		    	    android:background="@drawable/btn_background_circle"/>
 	    	</LinearLayout>
 	    	<LinearLayout 
@@ -240,49 +244,56 @@
 		    	android:layout_height="45dp"
 		    	android:background="@android:color/white"
 		    	android:gravity="center_vertical">
-	    		<EditText android:id="@+id/anthor_c1"
-	    		    android:layout_width="match_parent"
-		    		android:layout_height="45dp"
-		    		android:singleLine="true"
-		    		android:drawableLeft="@mipmap/comp_n_beixuan"
-		    		android:drawablePadding="4dp"
-		    		android:hint="@string/tip_input_c1"
-					android:maxLength="15"/>
-	    	</LinearLayout>
+
+				<EditText android:id="@+id/anthor_c1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:singleLine="true"
+                    android:drawableLeft="@mipmap/comp_n_beixuan"
+                    android:drawablePadding="4dp"
+                    android:hint="@string/tip_input_c1"
+                    android:textSize="15sp"
+                    android:maxLength="30"/>
+			</LinearLayout>
 	    	<LinearLayout 
 			    android:layout_width="match_parent"
 		    	android:layout_height="45dp"
 		    	android:background="@android:color/white"
 		    	android:gravity="center_vertical">
-	    		<EditText android:id="@+id/anthor_c2"
-	    		    android:layout_width="match_parent"
-		    		android:layout_height="45dp"
-		    		android:singleLine="true"
-		    		android:drawableLeft="@mipmap/comp_n_beixuan"
-		    		android:drawablePadding="4dp"
-		    		android:hint="@string/tip_input_c2"
-					android:maxLength="15"/>
-	    	</LinearLayout>
+
+				<EditText android:id="@+id/anthor_c2"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:singleLine="true"
+                    android:drawableLeft="@mipmap/comp_n_beixuan"
+                    android:drawablePadding="4dp"
+                    android:textSize="15sp"
+                    android:hint="@string/tip_input_c2"
+                    android:maxLength="30"/>
+			</LinearLayout>
 	    	<LinearLayout 
 			    android:layout_width="match_parent"
 		    	android:layout_height="45dp"
 		    	android:background="@android:color/white"
 		    	android:gravity="center_vertical">
-	    		<EditText android:id="@+id/anthor_c3"
-	    		    android:layout_width="match_parent"
-		    		android:layout_height="45dp"
-		    		android:singleLine="true"
-		    		android:drawableLeft="@mipmap/comp_n_beixuan"
-		    		android:drawablePadding="4dp"
-		    		android:hint="@string/tip_input_c3"
-					android:maxLength="15"/>
-	    	</LinearLayout>
+
+				<EditText android:id="@+id/anthor_c3"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:singleLine="true"
+                    android:drawableLeft="@mipmap/comp_n_beixuan"
+                    android:drawablePadding="4dp"
+                    android:textSize="15sp"
+
+                    android:hint="@string/tip_input_c3"
+                    android:maxLength="30"/>
+			</LinearLayout>
 	    	<TextView android:id="@+id/tip_word_youhui_book"
 	    	    android:layout_width="match_parent"
 	    	    android:layout_height="45dp"
 	    	    android:gravity="center"
 	    	    android:textColor="@android:color/holo_red_light"
-	    	    android:textSize="18sp"/>
+	    	    android:textSize="16sp"/>
     	</LinearLayout>
     	
     </ScrollView>
@@ -296,17 +307,20 @@
     	android:layout_height="45dp"
     	android:background="@android:color/white"
 		android:layout_marginTop="1dp">
-	    <TextView 
-	        android:layout_width="wrap_content"
-    		android:layout_height="45dp"
-    		android:layout_marginLeft="16dp"
-    		android:text="@string/jine"
-    		android:textSize="18sp"/>
-	    <TextView android:id="@+id/shu_heji"
+
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/jine"
+            android:textSize="15sp"
+			android:id="@+id/textView3" />
+
+		<TextView android:id="@+id/shu_heji"
 	        android:layout_width="wrap_content"
     		android:layout_height="45dp"
     		android:layout_marginLeft="4dp"
-    		android:textSize="18sp"
+    		android:textSize="15sp"
     		android:textColor="@android:color/holo_red_light"/>
 	    <View android:layout_width="0dp"
 	        android:layout_height="match_parent"
@@ -317,7 +331,9 @@
 	        android:layout_marginRight="16dp"
 	        android:paddingLeft="16dp"
 			android:paddingRight="16dp"
-	        android:text="@string/book_yuque"
+			android:textSize="15sp"
+
+			android:text="@string/book_yuque"
 			android:textColor="@android:color/white"
 	        android:background="@drawable/btn_bookyuyue_selector"/>
 	</LinearLayout>

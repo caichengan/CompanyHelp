@@ -9,7 +9,7 @@
         android:layout_height="50dp"
         android:id="@+id/afterPayTip"
         android:layout_marginTop="8dp"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:textColor="@android:color/black"
         android:gravity="center"
         android:text="显示返回状态"/>

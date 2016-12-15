@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:text="支付凭证"/>
         <TextView
             android:id="@+id/pay_current_time"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:gravity="center_horizontal"
             android:text="支付金额:"/>
         <TextView
@@ -59,13 +59,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商品详情："
-            android:textSize="16sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/goods_detial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="注册资金"
-            android:textSize="16sp"/>
+            android:textSize="15sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -76,13 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="订单编号："
-            android:textSize="16sp"/>
+            android:textSize="15sp"/>
         <TextView
             android:id="@+id/pay_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="234"
-            android:textSize="16sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
         <View
@@ -102,7 +102,7 @@
             android:layout_height="30dp"
             android:text="查看详情！"
             android:gravity="center_vertical"
-            android:textSize="16sp"/>
+            android:textSize="15sp"/>
 
             <ImageView
                 android:layout_width="wrap_content"

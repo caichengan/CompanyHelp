@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:text="标题:"/>
         <TextView
             android:id="@+id/mess_list_title"

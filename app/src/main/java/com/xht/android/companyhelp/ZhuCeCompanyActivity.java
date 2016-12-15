@@ -36,6 +36,7 @@ import org.json.JSONObject;
  */
 public class ZhuCeCompanyActivity extends Activity implements OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
+	private static final String TAG = "ZhuCeCompanyActivity";
 	private int mUId;
 	private long mPhoneNum;
 	private String mUserName;
@@ -218,7 +219,7 @@ public class ZhuCeCompanyActivity extends Activity implements OnCheckedChangeLis
 			@Override
 			public void onResult(Object result) {
 				JSONObject jO = ((JSONObject) result).optJSONObject("entity");
-				LogHelper.i("加载价格", jO.toString());
+				LogHelper.i(TAG,"-----" +jO.toString());
 				for (int i = 0; i < 6; i++) {
 					dljz6[i + 1] = jO.optInt(dljz6JsonKey[i]);
 				}

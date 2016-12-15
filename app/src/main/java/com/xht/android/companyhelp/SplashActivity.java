@@ -89,12 +89,13 @@ public class SplashActivity extends Activity {
                 //服务器中的版本号
                 Double versionNew=Double.parseDouble(versionNum);
                 String downloadUrl = mJsonVersion.optString("downloadUrl");
+                String updateDescribe = mJsonVersion.optString("updateDescribe");
 
                 if (versionNew>appInfoNumber){
-                    versionNew=versionNew/10.0;
+                    versionNew=versionNew/100.00;
                     LogHelper.i(TAG,"---versionNum：="+versionNew+"---"+downloadUrl);
                     LogHelper.i(TAG,"---有新版本，下载更新");
-                    showDialogUpdate(versionNew+"","新的版本，修复文章bug",downloadUrl);
+                    showDialogUpdate(versionNew+"",updateDescribe,downloadUrl);
                 }else{
                     startActivity(new Intent(SplashActivity.this,MainActivity.class));
                     finish();

@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -42,7 +43,7 @@ public class ZhangHuMiMa extends Activity  {
         LogHelper.i(TAG,"---"+mUId);
         TextView mCustomView = new TextView(this);
         mCustomView.setGravity(Gravity.CENTER);
-        mCustomView.setText("修改账户");
+        mCustomView.setText("修改密码");
         mCustomView.setTextSize(18);
         final ActionBar aBar = getActionBar();
         aBar.setCustomView(mCustomView,
@@ -111,6 +112,19 @@ public class ZhangHuMiMa extends Activity  {
         mProgDoal.setIndeterminate(true);
         mProgDoal.setCancelable(false);
         mProgDoal.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
     /**
      * 隐藏对话框

@@ -96,6 +96,7 @@
     <string name="chexiao">撤销</string>
     <string name="please_idcard_nums">请填写身份证号</string>
     <string name="heji_yuanjiaofen">¥ %1$.2f</string>
+    <string name="yuan">%1$.2f</string>
     <string name="fp_tab_str1">税局开票申请</string>
     <string name="fp_tab_str2">业务开票</string>
     <string name="fp_tab_str3">发票认证</string>
@@ -187,4 +188,6 @@
     <!-- MyDialogFragment -->
     <string name="shebao_md">社保名单</string>
     <string name="baoshui_mx">报税明细</string>
+
+
 </resources>

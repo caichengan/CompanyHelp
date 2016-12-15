@@ -9,10 +9,10 @@
 
     <Button
         android:id="@+id/zh_message"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:text="修改账户"
         android:gravity="center_vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:drawableLeft="@mipmap/zhanghu_name"
         android:background="@android:color/transparent"
         android:layout_height="50dp" />
@@ -23,11 +23,11 @@
 
     <Button
         android:id="@+id/zh_xinmima"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:text="修改密码"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:drawableLeft="@mipmap/zhanghu_mima"
         android:background="@android:color/transparent"
         android:layout_height="50dp" />

@@ -11,6 +11,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:textSize="15sp"
         android:hint="请输入评论内容，最多50个字"
         android:background="@android:color/white"/>
 
@@ -26,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:text="评分:"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 android:gravity="center_vertical"
                 android:layout_marginRight="20dp"
                 android:layout_height="35dp" />
@@ -75,6 +76,7 @@
             android:id="@+id/mChatAppraise"
             android:layout_width="100dp"
             android:text="发表评论"
+            android:textSize="15sp"
             android:layout_margin="30dp"
             android:textColor="@android:color/white"
             android:background="@drawable/btn_background_circle"

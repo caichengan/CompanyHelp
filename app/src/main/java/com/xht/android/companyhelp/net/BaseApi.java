@@ -63,6 +63,9 @@ public class BaseApi {
 	//提交评论
 	public static final String POST_APPRAISE_URL="http://www.xiaohoutai.com.cn:8888/XHT/commentController/addCommentService";
 
+	//提交税金数据确认
+	public static final String POST_SURETAX_URL="http://www.xiaohoutai.com.cn:8888/XHT/taxdataController/confirmTaxInfo";
+
 	//获取支付的订单
 	public static final String ZHUXIAO_GET_YES_PAY_URL="http://www.xiaohoutai.com.cn:8888/XHT/ordercontactController/getMyOrderHadPay";
 
@@ -78,9 +81,11 @@ public class BaseApi {
 	public static final String FUWU_POST_MiMa_URL="http://www.xiaohoutai.com.cn:8888/XHT/ordercontactController/modifyUserPass";
 
 
-
 	//获取公司类型
 	public static final String FUWU_GET_COMP_TYPE_URL="http://www.xiaohoutai.com.cn:8888/XHT/appCompanyController/loadCompanyType";
+
+	//根据公司id获取对应的报税请求
+	public static final String COMTAX_URL_RESET="http://www.xiaohoutai.com.cn:8888/XHT/taxdataController/getTaxdataInfo";
 	//获取公司职位
 	public static final String FUWU_GET_COMP_WORK_URL="http://www.xiaohoutai.com.cn:8888/XHT/appCompanyController/loadCompanyPost";
 	//完善信息--提交
