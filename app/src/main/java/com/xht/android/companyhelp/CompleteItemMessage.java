@@ -161,6 +161,22 @@ public class CompleteItemMessage extends Activity{
         Intent intent=getIntent();
         int whichI = intent.getIntExtra("ItemWhich", -1);
 
+        LogHelper.i(TAG,"----whichI---"+whichI);
+
+        if (whichI==0){
+            if (!mWorks[mWorkId].equals("法人")&&!mWorks[mWorkId].equals("监事")){
+                App.getInstance().showToast("必须先有法人或者监事");
+                return;
+            }
+        }
+
+        if (whichI==1){
+            if (!mWorks[mWorkId].equals("法人")&&!mWorks[mWorkId].equals("监事")){
+                App.getInstance().showToast("必须先有法人或者监事");
+                return;
+            }
+        }
+
         intent.putExtra("ItemWhich",whichI);
         intent.putExtra("mWorkId",mWorkId);
         intent.putExtra("mName",mName);

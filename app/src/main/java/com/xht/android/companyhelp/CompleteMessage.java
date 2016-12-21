@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -18,6 +19,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.xht.android.companyhelp.model.CompleteJavaBean;
 import com.xht.android.companyhelp.net.APIListener;
 import com.xht.android.companyhelp.net.VolleyHelpApi;
@@ -47,30 +52,39 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
     private Button mButAdd;
     private Button mButCancel;
 
-    private int mWorkId=0;
+    private String[] mWorks;//公司类型
+    private int[] mWorkIds;
+
+    private int mWorkId = 0;
     private int mUId;//用户id
 
-    private String[]mCompNames;//公司名字数组
+    private String[] mCompNames;//公司名字数组
     private int[] mCompIds;
     private int mSelectedCompId;//公司名称选中哪一个id
     private Spinner mSpCompleteName;
 
-    private String[]mCompType;//公司类型
+    private String[] mCompType;//公司类型
     private int[] mCompTypeIds;
-    private int mCompTypeId =0;//公司类型选中哪一个id
+    private int mCompTypeId = 0;//公司类型选中哪一个id
 
 
-    private ArrayList<CompleteJavaBean> mListData=new ArrayList<>();//数据存储
+    private ArrayList<CompleteJavaBean> mListData = new ArrayList<>();//数据存储
     private CompleteAdapter adapter;//每个item存储的信息
 
     //private String[] mCompanyNameStyle ={"有限责任公司(自然人投资或控股)","有限责任公司(有限人独资)"};
     private static final String TAG = "CompleteMessage";
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getBundleExtra("mBundle");
-        mUId = bundle.getInt("mUid",0);
-        LogHelper.i(TAG,"--"+mUId);
+        mUId = bundle.getInt("mUid", 0);
+        LogHelper.i(TAG, "--" + mUId);
         setContentView(R.layout.acticity_complete);
         TextView mCustomView = new TextView(this);
         mCustomView.setGravity(Gravity.CENTER);
@@ -88,23 +102,24 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
         //获取公司类型
         getCompanyType(mUId);
 
+        getCompanyWork(mUId);
 
 
-        mListComplete= (ListView) findViewById(R.id.complete_xinxi_list);
-        mButAdd= (Button) findViewById(R.id.but_item_sure);
-        mButCancel= (Button) findViewById(R.id.but_item_cancel);
+        mListComplete = (ListView) findViewById(R.id.complete_xinxi_list);
+        mButAdd = (Button) findViewById(R.id.but_item_sure);
+        mButCancel = (Button) findViewById(R.id.but_item_cancel);
         mButAdd.setOnClickListener(this);
         mButCancel.setOnClickListener(this);
         //添加listview的头
-        View viewHeader=View.inflate(CompleteMessage.this,R.layout.complete_list_header,null);
-        mCCName= (EditText) viewHeader.findViewById(R.id.complete_company_name);
-        mCMoney= (EditText) viewHeader.findViewById(R.id.complete_zhuce_money);
-        mCSpinner= (Spinner) viewHeader.findViewById(R.id.complete_company_leixing);
-        mJYAddress= (EditText) viewHeader.findViewById(R.id.complete_jingying_address);
-        mJYFanWei= (EditText) viewHeader.findViewById(R.id.complete_company_fanwei);
-        mSpCompleteName= (Spinner) viewHeader.findViewById(R.id.complete_spinner);
+        View viewHeader = View.inflate(CompleteMessage.this, R.layout.complete_list_header, null);
+        mCCName = (EditText) viewHeader.findViewById(R.id.complete_company_name);
+        mCMoney = (EditText) viewHeader.findViewById(R.id.complete_zhuce_money);
+        mCSpinner = (Spinner) viewHeader.findViewById(R.id.complete_company_leixing);
+        mJYAddress = (EditText) viewHeader.findViewById(R.id.complete_jingying_address);
+        mJYFanWei = (EditText) viewHeader.findViewById(R.id.complete_company_fanwei);
+        mSpCompleteName = (Spinner) viewHeader.findViewById(R.id.complete_spinner);
         mListComplete.addHeaderView(viewHeader);
-        adapter=new CompleteAdapter(mListData);
+        adapter = new CompleteAdapter(mListData);
         mListComplete.setAdapter(adapter);
         initData();
         mListData.add(new CompleteJavaBean());
@@ -112,21 +127,56 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
         mListComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent =new Intent(CompleteMessage.this,CompleteItemMessage.class);
-                intent.putExtra("ItemWhich",position-1);
+                Intent intent = new Intent(CompleteMessage.this, CompleteItemMessage.class);
+                intent.putExtra("ItemWhich", position - 1);
 
-                intent.putExtra("mName", mListData.get(position-1).getmName());
-                intent.putExtra("mBiLi", mListData.get(position-1).getmBiLi()+"");
-                intent.putExtra("mSFZPhone", mListData.get(position-1).getmNumber());
-                intent.putExtra("mSFZAddress", mListData.get(position-1).getmAddress());
-                intent.putExtra("mZhiWei", mListData.get(position-1).getmPWork());
+                intent.putExtra("mName", mListData.get(position - 1).getmName());
+                intent.putExtra("mBiLi", mListData.get(position - 1).getmBiLi() + "");
+                intent.putExtra("mSFZPhone", mListData.get(position - 1).getmNumber());
+                intent.putExtra("mSFZAddress", mListData.get(position - 1).getmAddress());
+                intent.putExtra("mZhiWei", mListData.get(position - 1).getmPWork());
 
-                intent.putExtra("mUid",mUId);
-                CompleteMessage.this.startActivityForResult(intent,0);
+                intent.putExtra("mUid", mUId);
+                CompleteMessage.this.startActivityForResult(intent, 0);
             }
         });
 
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+
+    //获取公司职位
+    public void getCompanyWork(int uid) {
+        VolleyHelpApi.getInstance().getCompanyWork(uid, new APIListener() {
+            @Override
+            public void onResult(Object result) {
+                JSONArray companyJT = (JSONArray) result;
+                LogHelper.i(TAG, "---所有信息--" + companyJT.toString());
+                try {
+                    int compJTLength = companyJT.length();
+                    mWorkIds = new int[compJTLength];
+                    mWorks = new String[compJTLength];
+                    for (int i = 0; i < compJTLength; i++) {
+                        JSONObject temp = companyJT.optJSONObject(i);
+                        mWorkIds[i] = temp.optInt("postId");
+                        mWorks[i] = temp.optString("postName");
+                        LogHelper.i(TAG, "---" + mWorkIds[i] + ":" + mWorks[i]);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                mWorkId = mWorkIds[0];
+            }
+
+            @Override
+            public void onError(Object e) {
+                App.getInstance().showToast(e.toString());
+                finish();
+            }
+        });
     }
 
     //获取公司类型
@@ -134,10 +184,10 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
         VolleyHelpApi.getInstance().getCompanyType(uid, new APIListener() {
             @Override
             public void onResult(Object result) {
-              //  LogHelper.i(TAG, "--公司类型信息--"+result.toString());
-              //  "entity":[{"typeName":"有限责任公司","typeId":1},{"typeName":"合资有限公司","typeId":2},{"typeName":"外资企业","typeId":3}]
+                //  LogHelper.i(TAG, "--公司类型信息--"+result.toString());
+                //  "entity":[{"typeName":"有限责任公司","typeId":1},{"typeName":"合资有限公司","typeId":2},{"typeName":"外资企业","typeId":3}]
 
-                JSONArray companyJT= (JSONArray) result;
+                JSONArray companyJT = (JSONArray) result;
                 LogHelper.i(TAG, "---所有信息--" + companyJT.toString());
 
                 try {
@@ -148,7 +198,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
                         JSONObject temp = companyJT.optJSONObject(i);
                         mCompTypeIds[i] = temp.optInt("typeId");
                         mCompType[i] = temp.optString("typeName");
-                        LogHelper.i(TAG,"---"+mCompTypeIds[i]+":"+ mCompType[i]);
+                        LogHelper.i(TAG, "---" + mCompTypeIds[i] + ":" + mCompType[i]);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -157,6 +207,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
                 mCompTypeId = mCompTypeIds[0];
                 refleshCompanyTypeView();
             }
+
             @Override
             public void onError(Object e) {
                 dismissProgressDialog();
@@ -168,12 +219,13 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
     }
 
     private void refleshCompanyTypeView() {
-        ArrayAdapter<CharSequence> mCSpinnerAdapter=new ArrayAdapter<CharSequence>(CompleteMessage.this,android.R.layout.simple_spinner_item, mCompType);
+        ArrayAdapter<CharSequence> mCSpinnerAdapter = new ArrayAdapter<CharSequence>(CompleteMessage.this, android.R.layout.simple_spinner_item, mCompType);
         mCSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCSpinner.setAdapter(mCSpinnerAdapter);
     }
 
     //获取公司名称
+
     /**
      * 根据用户id获取公司列表
      */
@@ -202,6 +254,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
                 mSelectedCompId = mCompIds[0];
                 refleshCompanyView();
             }
+
             @Override
             public void onError(Object e) {
                 dismissProgressDialog();
@@ -210,6 +263,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
             }
         });
     }
+
     private void refleshCompanyView() {
         ArrayAdapter<CharSequence> arrayAdapter = new ArrayAdapter<CharSequence>(CompleteMessage.this, android.R.layout.simple_spinner_item, mCompNames);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -223,19 +277,20 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==0){
-          //  LogHelper.i(TAG,"---item所有信息"+data.toString()+"------");
+        if (requestCode == 0) {
+            //  LogHelper.i(TAG,"---item所有信息"+data.toString()+"------");
 
-            if (resultCode==RESULT_OK){
-                int mWhich=data.getIntExtra("ItemWhich",-1);
-                mWorkId=data.getIntExtra("mWorkId",-1);
-               String name= data.getStringExtra("mName");
-               String bili= data.getStringExtra("mBiLi");
-               String phone= data.getStringExtra("mSFZPhone");
-               String address= data.getStringExtra("mSFZAddress");
-               String job= data.getStringExtra("mZhiWei");
-               boolean isClick= data.getBooleanExtra("isClick",false);
-                LogHelper.i(TAG,mWhich+"---------"+name+"---"+bili+"----"+phone+"---"+address+"--"+job);
+            if (resultCode == RESULT_OK) {
+                int mWhich = data.getIntExtra("ItemWhich", -1);
+                mWorkId = data.getIntExtra("mWorkId", -1);
+                String name = data.getStringExtra("mName");
+                String bili = data.getStringExtra("mBiLi");
+                String phone = data.getStringExtra("mSFZPhone");
+                String address = data.getStringExtra("mSFZAddress");
+                String job = data.getStringExtra("mZhiWei");
+                boolean isClick = data.getBooleanExtra("isClick", false);
+                LogHelper.i(TAG, mWhich + "---------" + name + "---" + bili + "----" + phone + "---" + address + "--" + job);
+
 
                 mListData.get(mWhich).setmName(name);
                 mListData.get(mWhich).setmBiLi(bili);
@@ -243,21 +298,27 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
                 mListData.get(mWhich).setmAddress(address);
                 mListData.get(mWhich).setmPWork(job);
                 mListData.get(mWhich).setmClick(isClick);
-                mListData.get(mWhich).setmWorkId(mWorkId+1);
+                mListData.get(mWhich).setmWorkId(mWorkId + 1);
+
+                LogHelper.i(TAG, "----mWhich----" + mWhich);
+
+
                 adapter.notifyDataSetChanged();
 
             }
         }
     }
+
     //填充数据
     private void initData() {
 
         mCSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mCompTypeId =position+1;
-                LogHelper.i(TAG,"------选中的spinner类型的id"+ mCompTypeId);
+                mCompTypeId = position + 1;
+                LogHelper.i(TAG, "------选中的spinner类型的id" + mCompTypeId);
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -268,17 +329,19 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
                 mSelectedCompId = mCompIds[position];
 
                 mCCName.setText(mCompNames[position].toString());
-                LogHelper.i(TAG,"------mSelectedCompId::"+mSelectedCompId+"----------"+mCompNames[position]);
+                LogHelper.i(TAG, "------mSelectedCompId::" + mSelectedCompId + "----------" + mCompNames[position]);
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
     }
+
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.but_item_sure:
                 //点击按钮提交数据
 
@@ -294,8 +357,8 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
     }
 
     private void checkInFo() {
-        for (CompleteJavaBean temp:mListData) {
-            if (temp.getmName()==null || temp.getmName()==""){
+        for (CompleteJavaBean temp : mListData) {
+            if (temp.getmName() == null || temp.getmName() == "") {
                 App.getInstance().showToast("请完善员工信息");
                 return;
             }
@@ -307,17 +370,17 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
     *封装完善公司信息----数据提交  TODO
      */
     private void postCompleteData() {
-        String mNewCompany=mCCName.getText().toString();
-        String mMoney=mCMoney.getText().toString();
-        String mAddress=mJYAddress.getText().toString();
-        String mScope=mJYFanWei.getText().toString();
-      //  String mCompanyType= mCompType[mCompanyId];
-        JSONObject mJSON=new JSONObject();
+        String mNewCompany = mCCName.getText().toString();
+        String mMoney = mCMoney.getText().toString();
+        String mAddress = mJYAddress.getText().toString();
+        String mScope = mJYFanWei.getText().toString();
+        //  String mCompanyType= mCompType[mCompanyId];
+        JSONObject mJSON = new JSONObject();
 
-        JSONObject mJSONComplete=new JSONObject();
-        JSONArray mJSONContacts=new JSONArray();
+        JSONObject mJSONComplete = new JSONObject();
+        JSONArray mJSONContacts = new JSONArray();
         try {
-            mJSON.put("companyId",mSelectedCompId);//公司id
+            mJSON.put("companyId", mSelectedCompId);//公司id
 
             if (TextUtils.isEmpty(mNewCompany)) {
                 App.getInstance().showToast("请完善信息");
@@ -343,37 +406,60 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
             } else {
                 mJSONComplete.put("ScopeAddress", mScope);
             }
-            if (mListData.size()<=0){
+            if (mListData.size() <= 0) {
                 App.getInstance().showToast("请添加公司人员");
                 return;
             }
 
-            if (!mListData.get(0).getmClick()){
+            if (!mListData.get(0).getmClick()) {
                 App.getInstance().showToast("请 完善员工信息");
                 return;
             }
-            if (!mListData.get(1).getmClick()){
+            if (!mListData.get(1).getmClick()) {
                 App.getInstance().showToast("请 完善员工信息");
                 return;
             }
 
             mJSONComplete.put("CompanyTypeId", mCompTypeId);//公司类型id
-            for (CompleteJavaBean temp:mListData){
-                JSONObject mCompleteItem=new JSONObject();
-                mCompleteItem.put("name",temp.getmName());//姓名
-                mCompleteItem.put("ratio",temp.getmBiLi());//比例
-                mCompleteItem.put("sfznumber",temp.getmNumber());//身份证号码
-                mCompleteItem.put("sfzaddress",temp.getmAddress());//身份证地址
-               // mCompleteItem.put("work",temp.getmPWork());//职位
-                mCompleteItem.put("mWorkId",temp.getmWorkId());//职位id
+            for (CompleteJavaBean temp : mListData) {
+                JSONObject mCompleteItem = new JSONObject();
+                mCompleteItem.put("name", temp.getmName());//姓名
+                mCompleteItem.put("ratio", temp.getmBiLi());//比例
+                mCompleteItem.put("sfznumber", temp.getmNumber());//身份证号码
+                mCompleteItem.put("sfzaddress", temp.getmAddress());//身份证地址
+                // mCompleteItem.put("work",temp.getmPWork());//职位
+                mCompleteItem.put("mWorkId", temp.getmWorkId());//职位id
+
                 mJSONContacts.put(mCompleteItem);
             }
-        }catch (Exception e){
+
+
+            int bili=0;
+            for (CompleteJavaBean temp1 : mListData) {
+
+                bili+=Integer.parseInt(temp1.getmBiLi());
+
+            }
+            if (bili!=100){
+
+                App.getInstance().showToast("股份比例没有百分之百");
+                return;
+            }
+
+            if (mListData.get(0).getmPWork().equals(mListData.get(1).getmPWork())){
+                App.getInstance().showToast("不能有两个相同的职位");
+                return;
+
+            }
+
+
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
-            mJSON.putOpt("CompleteMess",mJSONComplete);
-            mJSON.putOpt("CompleteContacts",mJSONContacts);
+            mJSON.putOpt("CompleteMess", mJSONComplete);
+            mJSON.putOpt("CompleteContacts", mJSONContacts);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -385,9 +471,11 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
             @Override
             public void onResult(Object result) {
                 dismissProgressDialog();
-                LogHelper.i(TAG,"完善信息成功");
+                LogHelper.i(TAG, "完善信息成功");
+                App.getInstance().showToast("信息完善成功");
                 CompleteMessage.this.finish();
             }
+
             @Override
             public void onError(Object e) {
                 dismissProgressDialog();
@@ -397,9 +485,45 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
     }
 
     /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("CompleteMessage Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
+
+    /**
      * listview适配器
      */
-    class CompleteAdapter extends ArrayAdapter<CompleteJavaBean>  {
+    class CompleteAdapter extends ArrayAdapter<CompleteJavaBean> {
         public CompleteAdapter(ArrayList<CompleteJavaBean> item) {
             super(CompleteMessage.this, 0, item);
         }
@@ -412,25 +536,25 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             final ViewHolder holder;
-            if (convertView==null){
-                holder=new ViewHolder();
-                convertView=View.inflate(CompleteMessage.this,R.layout.complete_item_list,null);
-                holder.mItemName= (TextView) convertView.findViewById(R.id.item_name);
-                holder.mItemBiLi= (TextView) convertView.findViewById(R.id.item_bili);
-                holder.mItemNumber= (TextView) convertView.findViewById(R.id.item_zhenjian_number);
-                holder.mItemAddress= (TextView) convertView.findViewById(R.id.item_zhenjian_address);
+            if (convertView == null) {
+                holder = new ViewHolder();
+                convertView = View.inflate(CompleteMessage.this, R.layout.complete_item_list, null);
+                holder.mItemName = (TextView) convertView.findViewById(R.id.item_name);
+                holder.mItemBiLi = (TextView) convertView.findViewById(R.id.item_bili);
+                holder.mItemNumber = (TextView) convertView.findViewById(R.id.item_zhenjian_number);
+                holder.mItemAddress = (TextView) convertView.findViewById(R.id.item_zhenjian_address);
 
-                holder.mItemWork= (TextView) convertView.findViewById(R.id.item_work_zhiwei);
-                holder.mItemAddRen= (Button) convertView.findViewById(R.id.but_item_addren);
-                holder.mItemCancelRen= (Button) convertView.findViewById(R.id.but_item_cancelren);
-                holder.mItemSure= (Button) convertView.findViewById(R.id.but_item_sure);
-                holder.mItemCancel= (Button) convertView.findViewById(R.id.but_item_cancel);
+                holder.mItemWork = (TextView) convertView.findViewById(R.id.item_work_zhiwei);
+                holder.mItemAddRen = (Button) convertView.findViewById(R.id.but_item_addren);
+                holder.mItemCancelRen = (Button) convertView.findViewById(R.id.but_item_cancelren);
+                holder.mItemSure = (Button) convertView.findViewById(R.id.but_item_sure);
+                holder.mItemCancel = (Button) convertView.findViewById(R.id.but_item_cancel);
 
                 convertView.setTag(holder);
-            }else{
-                holder= (ViewHolder) convertView.getTag();
+            } else {
+                holder = (ViewHolder) convertView.getTag();
             }
-          CompleteJavaBean item=getItem(position);
+            CompleteJavaBean item = getItem(position);
             holder.mItemName.setText(item.getmName());
             holder.mItemBiLi.setText(item.getmBiLi());
             holder.mItemNumber.setText(item.getmNumber());
@@ -441,9 +565,9 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
             holder.mItemAddRen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  mListData.add(new CompleteJavaBean());
+                    mListData.add(new CompleteJavaBean());
                     App.getInstance().showToast("已添加");
-                  adapter.notifyDataSetChanged();
+                    adapter.notifyDataSetChanged();
                 }
             });
 
@@ -458,6 +582,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
             return convertView;
         }
     }
+
     private void deleteOneItem(int position) {
         if (mListData.size() > 2) {
             mListData.remove(position);
@@ -467,7 +592,8 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
             App.getInstance().showToast("最后两个必须填写了");
         }
     }
-    static class ViewHolder{
+
+    static class ViewHolder {
         TextView mItemName;
         TextView mItemBiLi;
         TextView mItemNumber;
@@ -478,6 +604,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
         Button mItemSure;
         Button mItemCancel;
     }
+
     /**
      * 创建对话框
      *
@@ -492,6 +619,7 @@ public class CompleteMessage extends Activity implements View.OnClickListener {
         mProgDoal.setCancelable(false);
         mProgDoal.show();
     }
+
     /**
      * 隐藏对话框
      */
