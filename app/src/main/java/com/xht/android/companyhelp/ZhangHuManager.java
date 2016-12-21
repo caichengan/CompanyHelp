@@ -179,11 +179,9 @@ public class ZhangHuManager extends Activity implements View.OnClickListener {
                 if (mName!=null) {
                     intent.putExtra(MyFragment.UNAME_KEY, mName);
                 }
-                    sendBroadcast(intent);
-
+                sendBroadcast(intent);
                 App.getInstance().showToast("账户修改成功");
                 ZhangHuManager.this.finish();
-
             }
             @Override
             public void onError(Object e) {
