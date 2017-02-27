@@ -110,6 +110,8 @@ public class YesPayFragment extends Fragment {
                     iten.setOrderName(temp.optString("orderName"));
                     iten.setOrderFee(temp.optString("orderFee"));
 
+                    iten.setCompanyName(temp.optString("companyName"));//TODO  公司名
+
                     LogHelper.i(TAG,"------orderid"+temp.optString("orderid"));
                     mYesPayList.add(iten);
                 }
@@ -149,6 +151,8 @@ public class YesPayFragment extends Fragment {
                 holder.mMoney= (TextView) convertView.findViewById(R.id.item_yespay_money);
                 holder.mButComplete= (Button) convertView.findViewById(R.id.item_yespay_complete);
                 holder.mButProgress= (Button) convertView.findViewById(R.id.item_yespay_progress);
+
+                holder.mCompanyName= (TextView) convertView.findViewById(R.id.item_nopay_companyName);
                 holder.mTitle1= (TextView) convertView.findViewById(R.id.item_yespay_title1);
                 holder.mImage= (ImageView) convertView.findViewById(R.id.item_yespay_img);
                 holder.mImage1= (ImageView) convertView.findViewById(R.id.item_yespay_img1);
@@ -184,6 +188,9 @@ public class YesPayFragment extends Fragment {
             }
             holder.mTitle.setText(orderName);
             String orderFee = item.getOrderFee();
+
+            holder.mCompanyName.setText(item.getCompanyName()+"");
+
            int money = Integer.parseInt(orderFee);
             holder.mMoney.setText(String.format(getResources().getString(R.string.heji_yuanjiaofen),money /100.0f));
             String hasAccount = item.getHasAccount();
@@ -237,6 +244,9 @@ public class YesPayFragment extends Fragment {
         TextView mTitle;
         TextView mTitle1;
         TextView mMoney;
+        TextView mCompanyName;
+
+
         ImageView mImage;
         ImageView mImage1;
         Button mButComplete;

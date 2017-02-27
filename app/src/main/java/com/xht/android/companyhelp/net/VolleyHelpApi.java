@@ -1494,7 +1494,13 @@ public class VolleyHelpApi extends BaseApi{
 	}
 
 
-	//提交税金确认数据
+
+
+	/**
+	 * //提交税金确认数据
+	 * @param objectJO 提交的参数
+	 * @param apiListener
+     */
 	public void postDataTax(JSONObject objectJO, final APIListener apiListener) {
 
 

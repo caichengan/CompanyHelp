@@ -58,7 +58,7 @@ public class CheckProgress extends Activity{
         setContentView(R.layout.activity_check_progress);
         TextView mCustomView = new TextView(this);
         mCustomView.setGravity(Gravity.CENTER);
-        mCustomView.setText("返回");
+        mCustomView.setText("进度查看");
         mCustomView.setTextSize(18);
         final ActionBar aBar = getActionBar();
         aBar.setCustomView(mCustomView,
@@ -272,7 +272,6 @@ public class CheckProgress extends Activity{
                             String imgTag3 = item.getImgTag3();
                             BitmapUtils.loadImgageUrl(imgTag3, mRequest3, imgUrl3, holder.Img03);
                             LogHelper.i(TAG, "-------position-----" + position + "--" + imgUrl3);
-                            LogHelper.i(TAG, "-------onClick---imgUrl3-----" + imgUrl3);
 
 
                             if (!imgUrl4.equals("null")) {
@@ -281,7 +280,6 @@ public class CheckProgress extends Activity{
                                 String imgTag4 = item.getImgTag4();
                                 BitmapUtils.loadImgageUrl(imgTag4, mRequest4, imgUrl4, holder.Img04);
                                 LogHelper.i(TAG, "-------position-----" + position + "--" + imgUrl4);
-                                LogHelper.i(TAG, "-------onClick---imgUrl4-----" + imgUrl4);
 
                                 if (!imgUrl5.equals("null")) {
                                     holder.Img05.setVisibility(View.VISIBLE);
@@ -289,7 +287,6 @@ public class CheckProgress extends Activity{
                                     String imgTag5 = item.getImgTag5();
                                     BitmapUtils.loadImgageUrl(imgTag5, mRequest5, imgUrl5, holder.Img05);
                                     LogHelper.i(TAG, "-------position-----" + position + "--" + imgUrl5);
-                                    LogHelper.i(TAG, "-------onClick---imgUrl5-----" + imgUrl5);
 
                                     if (!imgUrl6.equals("null")) {
                                         holder.Img06.setVisibility(View.VISIBLE);
@@ -297,7 +294,6 @@ public class CheckProgress extends Activity{
                                         String imgTag6 = item.getImgTag6();
                                         BitmapUtils.loadImgageUrl(imgTag6, mRequest6, imgUrl6, holder.Img06);
                                         LogHelper.i(TAG, "-------position-----" + position + "--" + imgUrl6);
-                                        LogHelper.i(TAG, "-------onClick---imgUrl6-----" + imgUrl6);
 
 
                                         if (!imgUrl7.equals("null")) {
@@ -306,15 +302,12 @@ public class CheckProgress extends Activity{
                                             String imgTag7 = item.getImgTag7();
                                             BitmapUtils.loadImgageUrl(imgTag7, mRequest7, imgUrl7, holder.Img07);
                                             LogHelper.i(TAG, "-------position-----" + position + "--" + imgUrl7);
-                                            LogHelper.i(TAG, "-------onClick---imgUrl7-----" + imgUrl7);
-
                                             if (!imgUrl8.equals("null")) {
                                                 holder.Img08.setVisibility(View.VISIBLE);
                                                 ImageRequest mRequest8 = null;
                                                 String imgTag8 = item.getImgTag8();
                                                 BitmapUtils.loadImgageUrl(imgTag8, mRequest8, imgUrl8, holder.Img08);
                                                 LogHelper.i(TAG, "-------position-----" + position + "--" + imgUrl8);
-                                                LogHelper.i(TAG, "-------onClick---imgUrl7-----" + imgUrl8);
                                                 holder.Img08.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View v) {
@@ -452,6 +445,13 @@ public class CheckProgress extends Activity{
                 holder.Img06.setVisibility(View.INVISIBLE);
                 holder.Img07.setVisibility(View.INVISIBLE);
                 holder.Img08.setVisibility(View.INVISIBLE);
+
+
+                if (position==mListProgress.size()-1) {
+                    holder.mFinallyText.setText("要先评价，才能看到下一步");
+                }else{
+                    holder.mFinallyText.setText("");
+                }
             }
 
             //显示时间

@@ -26,6 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * 注册商标
+ */
 public class RegiTrademaskActivity extends Activity {
     private static final String TAG = "RegiTrademaskActivity";
     private int mUId;

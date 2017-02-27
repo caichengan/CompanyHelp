@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@android:color/white"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -292,7 +292,6 @@
             </LinearLayout>
         </LinearLayout>
         <RelativeLayout
-
             android:layout_toRightOf="@id/mProgressImg"
             android:layout_below="@id/mLinAppriase"
             android:layout_width="match_parent"
@@ -301,8 +300,12 @@
             <TextView
                 android:id="@+id/mFinallyText"
                 android:layout_width="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/holo_red_dark"
                 android:text="要先评价完才能看下一步"
                 android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/mProgressAppraise"
                 android:layout_width="100dp"
@@ -313,8 +316,8 @@
                 android:textColor="@android:color/white"
                 android:background="@drawable/btn_background_circle"
                 android:layout_height="40dp" />
+
         </RelativeLayout>
-
-
     </RelativeLayout>
+
 </LinearLayout>

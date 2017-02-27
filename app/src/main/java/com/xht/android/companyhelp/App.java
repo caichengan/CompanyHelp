@@ -152,12 +152,11 @@ public class App extends Application {
 						}
 						if (key.equals("uid")){//健值----获取传过来的推送id
 							itemMess.setmMessUid(value);
-							LogHelper.i(TAG, "1-------------------------`11---");
+							LogHelper.i(TAG, "1----------`11---");
 						}
 						LogHelper.i(TAG, "--111---" + key.toString() + "---11--" + value.toString());
 					}
 					messageList.add(itemMess);
-					
 				}
 				LogHelper.i(TAG, "---------------------------");
 				//messageList.add(itemMess);

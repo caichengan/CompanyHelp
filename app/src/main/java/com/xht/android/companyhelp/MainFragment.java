@@ -14,6 +14,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
+/**
+ * 主界面
+ */
 public class MainFragment extends Fragment {
 	
 	private RadioButton radioButton1, radioButton2, radioButton3;

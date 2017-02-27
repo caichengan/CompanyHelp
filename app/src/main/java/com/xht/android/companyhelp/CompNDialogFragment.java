@@ -31,6 +31,7 @@ public class CompNDialogFragment extends DialogFragment {
     static CompNDialogFragment newInstance(int compId) {
         CompNDialogFragment f = new CompNDialogFragment();
 
+
         // Supply num input as an argument.
         Bundle args = new Bundle();
         args.putInt("num", compId);

@@ -8,8 +8,8 @@ android {
         applicationId "com.xht.android.companyhelp"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 104
-        versionName "1.04"
+        versionCode 109
+        versionName "1.09"
         //multiDexEnabled true
     }
 

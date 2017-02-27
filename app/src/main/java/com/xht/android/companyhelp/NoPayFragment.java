@@ -124,6 +124,8 @@ public class NoPayFragment extends Fragment {
                         iten.setOrderName(orderName);
                         iten.setOrderFee(orderFee);
 
+                        iten.setCompanyName(temp.optString("companyName"));//TODO  公司名
+
                         LogHelper.i(TAG,"----订单id---"+orderid+"---id"+"hasAccount="+hasAccount+"businezzType=:"+businezzType+"-placeOrderTime="+placeOrderTime+"--orderName"+orderName+"-orderFee"+orderFee);
                         mNoPayList.add(iten);
                     }
@@ -164,6 +166,7 @@ public class NoPayFragment extends Fragment {
 
 
                 holder.mTime= (TextView) convertView.findViewById(R.id.item_nopay_time);
+                holder.mCompanyName= (TextView) convertView.findViewById(R.id.item_nopay_companyName);
                 holder.mTitle= (TextView) convertView.findViewById(R.id.item_nopay_title);
                 holder.mMoney= (TextView) convertView.findViewById(R.id.item_nopay_money);
                 holder.mButCancel= (Button) convertView.findViewById(R.id.item_nopay_cancel);
@@ -182,10 +185,14 @@ public class NoPayFragment extends Fragment {
             String orderName = item.getOrderName();
             holder.mTitle.setText(orderName);
 
+            holder.mCompanyName.setText(item.getCompanyName());
+
             String orderFee = item.getOrderFee();
             int money = Integer.parseInt(orderFee);
             holder.mMoney.setText(String.format(getResources().getString(R.string.heji_yuanjiaofen),money /100.0f));
 
+
+            holder.mCompanyName.setText(item.getCompanyName()+"");
             String hasAccount = item.getHasAccount();
 
             if ("Y".equals(hasAccount)) {
@@ -269,6 +276,7 @@ public class NoPayFragment extends Fragment {
     }
     static class ViewHolder{
         TextView mTime;
+        TextView mCompanyName;
         TextView mTitle;
         TextView mTitle1;
         TextView mMoney;

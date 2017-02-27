@@ -53,6 +53,7 @@ public class DaiLiJIZhangActivity extends Activity implements RadioGroup.OnCheck
 
     private RadioGroup mNSRLRadioGroup; //纳税人类型
     private RadioGroup mJZZQRadioGroup; //记账周期
+    private int money;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,13 +177,16 @@ public class DaiLiJIZhangActivity extends Activity implements RadioGroup.OnCheck
             @Override
             public void onResult(Object result) {
                 JSONObject jO = ((JSONObject) result).optJSONObject("entity");
+
+                LogHelper.i(TAG,"-------jo--"+jO.toString());
                 LogHelper.i("加载价格", jO.toString());
                 for (int i = 0; i < 6; i++) {
                     dljz6[i + 1] = jO.optInt(dljz6JsonKey[i]);
                 }
                 //mMoney = jO.optInt("yewu1");
 
-                mMoney = dljz6[dljz];
+               mMoney = dljz6[dljz];
+
 
                 mShiFouFlag = true;
                 dismissProgressDialog();
@@ -259,27 +263,38 @@ public class DaiLiJIZhangActivity extends Activity implements RadioGroup.OnCheck
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+        mMoney=0;
         switch (checkedId) {
+
             case R.id.radio1:
-                zhouqiFlag = 1;
+                zhouqiFlag = 1;//季度
                 break;
             case R.id.radio2:
-                zhouqiFlag = 2;
+                zhouqiFlag = 2;//半年
                 break;
             case R.id.radio3:
-                zhouqiFlag = 3;
+                zhouqiFlag = 3;//一年
                 break;
             case R.id.radioR1:
-                nsrFlag = 3;
+                nsrFlag = 3;//一般纳税人
                 break;
             case R.id.radioR2:
-                nsrFlag = 0;
+                nsrFlag = 0;//小规模纳税人
                 break;
             default:
                 break;
         }
+        LogHelper.i(TAG,"---nsrFlag"+nsrFlag);
+        LogHelper.i(TAG,"---zhouqiFlag"+zhouqiFlag);
+        LogHelper.i(TAG,"---money"+money);
+
         dljz = nsrFlag + zhouqiFlag;
-        mMoney = dljz6[dljz];
+        money = dljz6[dljz];
+        mMoney = mMoney + money;
+
+        LogHelper.i(TAG,"---mMoneyTotal"+ mMoney);
+        reFleshMoneyHeji();
+
         LogHelper.i("代理记账纳税人周期", "dljz=" + dljz);
     }
 
